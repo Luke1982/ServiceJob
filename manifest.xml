@@ -36,7 +36,7 @@
 		<sql><![CDATA[CREATE TABLE `vtiger_servicejob` (
 				  `servicejobid` INT(11) NOT NULL,
 				  `servicejob_no` VARCHAR(56) DEFAULT NULL,
-				  `procedure` VARCHAR(255) DEFAULT NULL,
+				  `service_procedure` VARCHAR(255) DEFAULT NULL,
 				  `execution_date` DATE,
 				  `related_asset_id` INT(11), 
 				  PRIMARY KEY (`servicejobid`)
@@ -78,6 +78,30 @@
 					<entityidcolumn>servicejobid</entityidcolumn>
 				</entityidentifier>
 			</field>
+			<field>
+				<fieldname>service_procedure</fieldname>
+				<uitype>16</uitype>
+				<columnname>service_procedure</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>service_procedure</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<defaultvalue></defaultvalue>
+				<sequence>2</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~M</typeofdata>
+				<quickcreate>0</quickcreate>
+				<quickcreatesequence></quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>0</masseditable>
+				<picklistvalues>
+					<picklistvalue>Keuring 2-plaats remtestbank</picklistvalue>
+					<picklistvalue>Keuring 4-plaats remtestbank</picklistvalue>
+				</picklistvalues>				
+			</field>			
 			<field>
 				<fieldname>execution_date</fieldname>
 				<uitype>5</uitype>
@@ -221,6 +245,10 @@
 			<field>
 				<fieldname>servicejob_no</fieldname>
 				<columnindex>0</columnindex>
+			</field>
+			<field>
+				<fieldname>service_procedure</fieldname>
+				<columnindex>1</columnindex>
 			</field>
 			<field>
 				<fieldname>execution_date</fieldname>

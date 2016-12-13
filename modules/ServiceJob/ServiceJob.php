@@ -411,7 +411,7 @@ class ServiceJob extends CRMEntity {
 			// Relate assets to salesorders
 			$this->relateServiceJobToSalesOrders();
 			// Create the procedure field
-			$this->createProcedureField();
+			// $this->createProcedureField();
 
 		} else if($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
@@ -424,6 +424,8 @@ class ServiceJob extends CRMEntity {
 			// Delete module tables
 			$adb->query("DROP TABLE vtiger_servicejob");
 			$adb->query("DROP TABLE vtiger_servicejobcf");
+			$adb->query("DROP TABLE vtiger_service_procedure");
+			$adb->query("DROP TABLE vtiger_service_procedure_seq");
 
 			$adb->query("DELETE FROM vtiger_blocks WHERE blocklabel='RelatedAssets' AND tabid=22");
 			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='Assets' AND tabid=22");
