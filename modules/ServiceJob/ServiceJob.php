@@ -426,8 +426,8 @@ class ServiceJob extends CRMEntity {
 			$adb->query("DROP TABLE vtiger_servicejobcf");
 
 			$adb->query("DELETE FROM vtiger_blocks WHERE blocklabel='RelatedAssets' AND tabid=22");
-			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='Assets' AND related_tabid=22");
-			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='ServiceJob' AND related_tabid=22");
+			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='Assets' AND tabid=22");
+			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='ServiceJob' AND tabid=22");
 
 			unlink('Smarty/templates/modules/SalesOrder/RelatedAssets_edit.tpl');
 			rmdir('Smarty/templates/modules/SalesOrder');
