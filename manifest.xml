@@ -80,7 +80,7 @@
 			</field>
 			<field>
 				<fieldname>service_procedure</fieldname>
-				<uitype>16</uitype>
+				<uitype>15</uitype>
 				<columnname>service_procedure</columnname>
 				<tablename>vtiger_servicejob</tablename>
 				<generatedtype>1</generatedtype>
