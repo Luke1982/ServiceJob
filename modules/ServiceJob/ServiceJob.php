@@ -414,6 +414,8 @@ class ServiceJob extends CRMEntity {
 			$this->relateAssetsToSalesOrders();
 			// Relate assets to salesorders
 			$this->relateServiceJobToSalesOrders();
+			// create an event handler for saving salesorders
+			$this->createSoEventHandler();
 
 		} else if($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
@@ -493,6 +495,22 @@ class ServiceJob extends CRMEntity {
 			Array('ADD','SELECT')
 		);
 
+	}
+
+	/*
+	 * Creates the event handler for when a salesorder is saved
+	 */
+	private function createSoEventHandler() {
+
+		global $adb;
+		require 'include/events/include.inc';
+		$em = new VTEventsManager($adb);
+
+		$eventName = 'vtiger.entity.beforesave';
+		$filePath = 'modules/ServiceJob/resources/handlers/onSalesOrderSave.php';
+		$className = 'SoSaveHandler';
+
+		$em->registerHandler($eventName, $filePath, $className);		
 	}
 
 	/**
