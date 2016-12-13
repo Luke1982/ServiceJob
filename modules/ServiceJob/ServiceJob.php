@@ -407,12 +407,12 @@ class ServiceJob extends CRMEntity {
 
 			// TODO Handle post installation actions
 			$this->setModuleSeqNumber('configure', $modulename, 'SJ', '000001');
-
 			// install the related assets block in salesorders
 			$this->installRelatedAssetsBlock();
-
 			// Relate assets to salesorders
 			$this->relateAssetsToSalesOrders();
+			// Relate assets to salesorders
+			$this->relateServiceJobToSalesOrders();
 
 		} else if($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
@@ -428,6 +428,7 @@ class ServiceJob extends CRMEntity {
 
 			$adb->query("DELETE FROM vtiger_blocks WHERE blocklabel='RelatedAssets' AND tabid=22");
 			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='Assets' AND related_tabid=22");
+			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='ServiceJob' AND related_tabid=22");
 
 			unlink('Smarty/templates/modules/SalesOrder/RelatedAssets_edit.tpl');
 			rmdir('Smarty/templates/modules/SalesOrder');
@@ -469,6 +470,23 @@ class ServiceJob extends CRMEntity {
 		$so_instance->setRelatedList(
 			Vtiger_Module::getInstance('Assets'),
 			'Assets',
+			Array('ADD','SELECT')
+		);
+
+	}
+
+	/*
+	 * Relates this module to salesorders
+	 */
+	private function relateServiceJobToSalesOrders() {
+
+		include_once('vtlib/Vtiger/Module.php');
+
+		$so_instance = Vtiger_Module::getInstance('SalesOrder');
+
+		$so_instance->setRelatedList(
+			Vtiger_Module::getInstance('ServiceJob'),
+			'ServiceJob',
 			Array('ADD','SELECT')
 		);
 
