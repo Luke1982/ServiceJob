@@ -132,7 +132,7 @@
 				<columnname>related_asset_id</columnname>
 				<tablename>vtiger_servicejob</tablename>
 				<generatedtype>1</generatedtype>
-				<fieldlabel>related_asset</fieldlabel>
+				<fieldlabel>related_asset_id</fieldlabel>
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>

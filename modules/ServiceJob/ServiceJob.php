@@ -38,7 +38,8 @@ class ServiceJob extends CRMEntity {
 	var $tab_name_index = Array(
 		'vtiger_crmentity' => 'crmid',
 		'vtiger_servicejob'   => 'servicejobid',
-		'vtiger_servicejobcf' => 'servicejobid');
+		'vtiger_servicejobcf' => 'servicejobid'
+	);
 
 	/**
 	 * Mandatory for Listing (Related listview)
@@ -50,7 +51,7 @@ class ServiceJob extends CRMEntity {
 		'Assigned To' => Array('crmentity' => 'smownerid'),
 		'procedure' => Array('servicejob' => 'procedure'),
 		'execution_date' => Array('servicejob' => 'execution_date'),
-		'related_asset' => Array('servicejob' => 'related_asset_id')
+		'related_asset_id' => Array('servicejob' => 'related_asset_id')
 	);
 	var $list_fields_name = Array(
 		/* Format: Field Label => fieldname */
@@ -58,7 +59,7 @@ class ServiceJob extends CRMEntity {
 		'Assigned To' => 'assigned_user_id',
 		'procedure' => 'procedure',
 		'execution_date' => 'execution_date',
-		'related_asset' => 'related_asset_id'
+		'related_asset_id' => 'related_asset_id'
 	);
 
 	// Make the field link to detail view from list view (Fieldname)
@@ -71,7 +72,7 @@ class ServiceJob extends CRMEntity {
 		'procedure'=> Array('servicejob' => 'procedure'),
 		'Assigned To'=> Array('crmentity' => 'smownerid'),
 		'execution_date'=> Array('servicejob' => 'execution_date'),
-		'related_asset'=> Array('servicejob' => 'related_asset_id'),
+		'related_asset_id'=> Array('servicejob' => 'related_asset_id'),
 		'servicejob_no'=> Array('servicejob' => 'servicejob_no'),
 	);
 	var $search_fields_name = Array(
@@ -79,7 +80,7 @@ class ServiceJob extends CRMEntity {
 		'procedure'=> 'procedure',
 		'Assigned To'=> 'assigned_user_id',
 		'execution_date'=> 'execution_date',
-		'related_asset'=> 'related_asset_id',
+		'related_asset_id'=> 'related_asset_id',
 		'servicejob_no'=> 'servicejob_no'
 	);
 
