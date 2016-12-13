@@ -19,6 +19,7 @@ Class SoSaveHandler extends VTEventHandler {
 					$sj_focus->column_fields['assigned_user_id'] = $soData['assigned_user_id'];
 					$sj_focus->column_fields['execution_date'] = $soData['duedate'];
 					$sj_focus->column_fields['related_asset_id'] = $v;
+					$sj_focus->column_fields['related_so_id'] = $soId;
 
 			 		$handler = vtws_getModuleHandlerFromName('ServiceJob', $current_user); 
 			 		$meta = $handler->getMeta();
