@@ -425,7 +425,12 @@ class ServiceJob extends CRMEntity {
 			// Delete module tables
 			$adb->query("DROP TABLE vtiger_servicejob");
 			$adb->query("DROP TABLE vtiger_servicejobcf");
-						
+
+			$adb->query("DELETE FROM vtiger_blocks WHERE blocklabel='RelatedAssets' AND tabid=22");
+
+			unlink('Smarty/templates/modules/SalesOrder/RelatedAssets_edit.tpl');
+			rmdir('Smarty/templates/modules/SalesOrder');
+
 		} else if($event_type == 'module.preupdate') {
 			// TODO Handle actions before this module is updated.
 		} else if($event_type == 'module.postupdate') {
