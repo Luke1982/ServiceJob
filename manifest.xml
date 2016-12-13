@@ -97,10 +97,6 @@
 				<info_type>BAS</info_type>
 				<helpinfo><![CDATA[LBL_PROCEDURE_HELPTEXT]]></helpinfo>
 				<masseditable>1</masseditable>
-				<picklistvalues>
-					<picklistvalue>procedure-1</picklistvalue>
-					<picklistvalue>procedure-2</picklistvalue>
-				</picklistvalues>				
 				<entityidentifier>
 					<entityidfield>servicejobid</entityidfield>
 					<entityidcolumn>servicejobid</entityidcolumn>
