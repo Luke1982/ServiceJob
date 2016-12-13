@@ -19,7 +19,7 @@
 					<td width="50%">Naam</td>
 					<td width="25%">Serienummer</td>
 					<td width="25%">Status</td>
-					<td width="0%"><input type="hidden" name="hdn_asset[0][crmid]" value=""></td>
+					<td width="0%"><input type="hidden" name="hdn_asset[]" value=""></td>
 				</tr>
 			</tbody>
 		</table>

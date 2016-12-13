@@ -8,6 +8,7 @@ Class SoSaveHandler extends VTEventHandler {
 			
 			echo "<pre>";
 			print_r($_REQUEST['hdn_asset']);
+			print_r($soId);
 			echo "</pre>";
 
 			die();

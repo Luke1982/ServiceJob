@@ -434,6 +434,7 @@ class ServiceJob extends CRMEntity {
 			$adb->query("DELETE FROM vtiger_blocks WHERE blocklabel='RelatedAssets' AND tabid=22");
 			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='Assets' AND tabid=22");
 			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='ServiceJob' AND tabid=22");
+			$adb->query("DELETE FROM vtiger_eventhandlers WHERE handler_class='SoSaveHandler'");
 
 			unlink('Smarty/templates/modules/SalesOrder/RelatedAssets_edit.tpl');
 			rmdir('Smarty/templates/modules/SalesOrder');
@@ -506,7 +507,7 @@ class ServiceJob extends CRMEntity {
 		require 'include/events/include.inc';
 		$em = new VTEventsManager($adb);
 
-		$eventName = 'vtiger.entity.beforesave';
+		$eventName = 'vtiger.entity.aftersave';
 		$filePath = 'modules/ServiceJob/resources/handlers/onSalesOrderSave.php';
 		$className = 'SoSaveHandler';
 

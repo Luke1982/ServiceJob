@@ -47,7 +47,7 @@ window.addEventListener("load", function(){
 
 		var newHiddenInput = newRow.getElementsByTagName("input")[0];
 		newHiddenInput.value = value;
-		newHiddenInput.name = "hdn_asset[0][" + value + "]";
+		newHiddenInput.name = "hdn_asset[" + value + "]";
 
 		row.parentElement.appendChild(newRow);
 
