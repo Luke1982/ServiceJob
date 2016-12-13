@@ -404,7 +404,7 @@ class ServiceJob extends CRMEntity {
 	 */
 	function vtlib_handler($modulename, $event_type) {
 		if($event_type == 'module.postinstall') {
-			
+
 			// TODO Handle post installation actions
 			$this->setModuleSeqNumber('configure', $modulename, 'SJ', '000001');
 
@@ -420,6 +420,12 @@ class ServiceJob extends CRMEntity {
 			// TODO Handle actions when this module is enabled.
 		} else if($event_type == 'module.preuninstall') {
 			// TODO Handle actions when this module is about to be deleted.
+
+			global $adb;
+			// Delete module tables
+			$adb->query("DROP TABLE vtiger_servicejob");
+			$adb->query("DROP TABLE vtiger_servicejobcf");
+						
 		} else if($event_type == 'module.preupdate') {
 			// TODO Handle actions before this module is updated.
 		} else if($event_type == 'module.postupdate') {
