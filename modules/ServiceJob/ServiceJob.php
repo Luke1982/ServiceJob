@@ -49,7 +49,6 @@ class ServiceJob extends CRMEntity {
 		// tablename should not have prefix 'vtiger_'
 		'servicejob_no'=> Array('servicejob' => 'servicejob_no'),
 		'Assigned To' => Array('crmentity' => 'smownerid'),
-		'procedure' => Array('servicejob' => 'procedure'),
 		'execution_date' => Array('servicejob' => 'execution_date'),
 		'related_asset_id' => Array('servicejob' => 'related_asset_id')
 	);
@@ -57,7 +56,6 @@ class ServiceJob extends CRMEntity {
 		/* Format: Field Label => fieldname */
 		'servicejob_no'=> 'servicejob_no',
 		'Assigned To' => 'assigned_user_id',
-		'procedure' => 'procedure',
 		'execution_date' => 'execution_date',
 		'related_asset_id' => 'related_asset_id'
 	);
@@ -69,7 +67,6 @@ class ServiceJob extends CRMEntity {
 	var $search_fields = Array(
 		/* Format: Field Label => Array(tablename => columnname) */
 		// tablename should not have prefix 'vtiger_'
-		'procedure'=> Array('servicejob' => 'procedure'),
 		'Assigned To'=> Array('crmentity' => 'smownerid'),
 		'execution_date'=> Array('servicejob' => 'execution_date'),
 		'related_asset_id'=> Array('servicejob' => 'related_asset_id'),
@@ -77,7 +74,6 @@ class ServiceJob extends CRMEntity {
 	);
 	var $search_fields_name = Array(
 		/* Format: Field Label => fieldname */
-		'procedure'=> 'procedure',
 		'Assigned To'=> 'assigned_user_id',
 		'execution_date'=> 'execution_date',
 		'related_asset_id'=> 'related_asset_id',
