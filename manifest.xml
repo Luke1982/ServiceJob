@@ -101,6 +101,14 @@
 					<entityidfield>servicejobid</entityidfield>
 					<entityidcolumn>servicejobid</entityidcolumn>
 				</entityidentifier>
+				<picklistvalues>
+					<picklistvalue>Keuring 2-plaats platenbank</picklistvalue>
+					<picklistvalue>Keuring 4-plaats platenbank</picklistvalue>
+					<picklistvalue>Keuring pedaaldrukmeter</picklistvalue>
+					<picklistvalue>Keuring viergastester</picklistvalue>
+					<picklistvalue>Keuring roetmeter</picklistvalue>
+					<picklistvalue>Keuring 0-emissie</picklistvalue>
+				</picklistvalues>
 			</field>
 			<field>
 				<fieldname>execution_date</fieldname>
