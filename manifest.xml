@@ -80,24 +80,28 @@
 			</field>
 			<field>
 				<fieldname>procedure</fieldname>
-				<uitype>16</uitype>
+				<uitype>15</uitype>
 				<columnname>procedure</columnname>
 				<tablename>vtiger_servicejob</tablename>
 				<generatedtype>1</generatedtype>
 				<fieldlabel>procedure</fieldlabel>
 				<readonly>1</readonly>
-				<presence>0</presence>
-				<selected>0</selected>
+				<presence>2</presence>
+				<defaultvalue></defaultvalue>
 				<sequence>2</sequence>
 				<maximumlength>100</maximumlength>
-				<typeofdata>V~O</typeofdata>
+				<typeofdata>V~M</typeofdata>
 				<quickcreate>0</quickcreate>
-				<quickcreatesequence>0</quickcreatesequence>
+				<quickcreatesequence></quickcreatesequence>
 				<displaytype>1</displaytype>
 				<info_type>BAS</info_type>
-				<helpinfo><![CDATA[LBL_PROCEDURE_HELPTEXT]]></helpinfo>
+				<helpinfo><![CDATA[]]></helpinfo>
 				<masseditable>1</masseditable>
-			</field>
+				<picklistvalues>
+					<picklistvalue>Test1</picklistvalue>
+					<picklistvalue>Test2</picklistvalue>
+				</picklistvalues>
+			</field>			
 			<field>
 				<fieldname>execution_date</fieldname>
 				<uitype>5</uitype>
