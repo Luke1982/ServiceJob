@@ -501,8 +501,8 @@ class ServiceJob extends CRMEntity {
 		$block = Vtiger_Block::getInstance('LBL_SERVICEJOB_INFORMATION', $module);
 
 		$fieldInstance = new Vtiger_Field();
-		$fieldInstance->name = 'procedure';
-		$fieldInstance->label = 'procedure';
+		$fieldInstance->name = 'service_procedure';
+		$fieldInstance->label = 'service_procedure';
 		$fieldInstance->columntype = 'varchar(128)';
 		$fieldInstance->uitype = 16;
 		$fieldInstance->displaytype = 1;
