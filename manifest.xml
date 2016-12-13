@@ -102,12 +102,8 @@
 					<entityidcolumn>servicejobid</entityidcolumn>
 				</entityidentifier>
 				<picklistvalues>
-					<picklistvalue>Keuring 2-plaats platenbank</picklistvalue>
-					<picklistvalue>Keuring 4-plaats platenbank</picklistvalue>
-					<picklistvalue>Keuring pedaaldrukmeter</picklistvalue>
-					<picklistvalue>Keuring viergastester</picklistvalue>
-					<picklistvalue>Keuring roetmeter</picklistvalue>
-					<picklistvalue>Keuring 0-emissie</picklistvalue>
+					<picklistvalue>procedure 1</picklistvalue>
+					<picklistvalue>procedure 2</picklistvalue>
 				</picklistvalues>
 			</field>
 			<field>
