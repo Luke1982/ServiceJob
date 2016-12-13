@@ -52,7 +52,7 @@
 </tables>
 <blocks>
 	<block>
-		<label>LBL_MODULEBLOCK_INFORMATION</label>
+		<label>LBL_SERVICEJOB_INFORMATION</label>
 		<fields>
 			<field>
 				<fieldname>servicejob_no</fieldname>
@@ -80,7 +80,7 @@
 			</field>
 			<field>
 				<fieldname>procedure</fieldname>
-				<uitype>15</uitype>
+				<uitype>16</uitype>
 				<columnname>procedure</columnname>
 				<tablename>vtiger_servicejob</tablename>
 				<generatedtype>1</generatedtype>
