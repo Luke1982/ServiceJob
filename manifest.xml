@@ -184,10 +184,10 @@
 		</fields>
 	</block>
 	<block>
-		<label>LBL_CUSTOM_INFORMATION</label>
+		<label>LBL_SERVICEJOB_CUSTOM_INFORMATION</label>
 	</block>
 	<block>
-		<label>LBL_DESCRIPTION_INFORMATION</label>
+		<label>LBL_SERVICEJOB_DESCRIPTION_INFORMATION</label>
 		<fields>
 			<field>
 				<fieldname>description</fieldname>
