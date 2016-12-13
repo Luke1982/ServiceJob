@@ -410,6 +410,8 @@ class ServiceJob extends CRMEntity {
 			$this->relateAssetsToSalesOrders();
 			// Relate assets to salesorders
 			$this->relateServiceJobToSalesOrders();
+			// Create the procedure field
+			$this->createProcedureField();
 
 		} else if($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
@@ -486,6 +488,31 @@ class ServiceJob extends CRMEntity {
 			'ServiceJob',
 			Array('ADD','SELECT')
 		);
+
+	}
+
+	/*
+	 * Creates and fills a new dropdown for this module
+	 * where procedures can be selected
+	 */
+	private function createProcedureField() {
+
+		$module = Vtiger_Module::getInstance('ServiceJob');
+		$block = Vtiger_Block::getInstance('LBL_SERVICEJOB_INFORMATION', $module);
+
+		$fieldInstance = new Vtiger_Field();
+		$fieldInstance->name = 'procedure';
+		$fieldInstance->label = 'procedure';
+		$fieldInstance->columntype = 'varchar(128)';
+		$fieldInstance->uitype = 16;
+		$fieldInstance->displaytype = 1;
+		$fieldInstance->typeofdata = 'V~M';
+		$fieldInstance->quickcreate = 0;
+
+		$block->addField($fieldInstance);
+
+		$pickListValues = array('Keuring 2-plaats remtestbank', 'Keuring 4-plaats remtestbank');
+		$fieldInstance->setPicklistValues($pickListValues);	
 
 	}
 
