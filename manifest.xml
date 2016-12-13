@@ -128,7 +128,7 @@
 			</field>
 			<field>
 				<fieldname>related_asset_id</fieldname>
-				<uitype>5</uitype>
+				<uitype>10</uitype>
 				<columnname>related_asset_id</columnname>
 				<tablename>vtiger_servicejob</tablename>
 				<generatedtype>1</generatedtype>
