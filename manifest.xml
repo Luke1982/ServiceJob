@@ -1,0 +1,305 @@
+<?xml version='1.0'?>
+<module>
+<name>ServiceJob</name>
+<label>ServiceJob</label>
+<parent>Tools</parent>
+<version>0.1</version>
+<short_description>A module that will keep track of service jobs done in the field</short_description>
+<dependencies>
+<vtiger_version>5.8.0</vtiger_version>
+<vtiger_max_version>5.*</vtiger_max_version>
+</dependencies>
+<license>
+<inline><![CDATA[
+/*************************************************************************************************
+ * Copyright 2016 MajorLabel -- This file is a part of MajorLabel coreBOS Customizations.
+ * Licensed under the vtiger CRM Public License Version 1.1 (the "License"); you may not use this
+ * file except in compliance with the License. You can redistribute it and/or modify it
+ * under the terms of the License. MajorLabel reserves all rights not expressly
+ * granted by the License. coreBOS distributed by MajorLabel is distributed in
+ * the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Unless required by
+ * applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT ANY WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific language governing
+ * permissions and limitations under the License. You may obtain a copy of the License
+ * at <http://corebos.org/documentation/doku.php?id=en:devel:vpl11>
+ *************************************************************************************************
+ *  Module       : coreBOS PackingSlip
+ *  Version      : 0.50
+ *************************************************************************************************/
+]]></inline>
+</license>
+<tables>
+	<table>
+		<name>vtiger_servicejob</name>
+		<sql><![CDATA[CREATE TABLE `vtiger_servicejob` (
+				  `servicejobid` INT(11) NOT NULL,
+				  `servicejob_no` VARCHAR(56) DEFAULT NULL,
+				  `procedure` VARCHAR(255) DEFAULT NULL,
+				  `execution_date` DATE,
+				  `related_asset_id` INT(11), 
+				  PRIMARY KEY (`servicejobid`)
+				) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+	</table>
+	<table>
+		<name>vtiger_servicejobcf</name>
+		<sql><![CDATA[CREATE TABLE `vtiger_servicejobcf` (
+		  `servicejobid` int(11) NOT NULL,
+		  PRIMARY KEY (`servicejobid`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+	</table>
+</tables>
+<blocks>
+	<block>
+		<label>LBL_MODULEBLOCK_INFORMATION</label>
+		<fields>
+			<field>
+				<fieldname>servicejob_no</fieldname>
+				<uitype>4</uitype>
+				<columnname>servicejob_no</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>servicejob_no</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<selected>0</selected>
+				<sequence>1</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~M</typeofdata>
+				<quickcreate>0</quickcreate>
+				<quickcreatesequence>0</quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>1</masseditable>
+				<entityidentifier>
+					<entityidfield>servicejobid</entityidfield>
+					<entityidcolumn>servicejobid</entityidcolumn>
+				</entityidentifier>
+			</field>
+			<field>
+				<fieldname>procedure</fieldname>
+				<uitype>16</uitype>
+				<columnname>procedure</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>procedure</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<selected>0</selected>
+				<sequence>2</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~O</typeofdata>
+				<quickcreate>0</quickcreate>
+				<quickcreatesequence>0</quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[LBL_PROCEDURE_HELPTEXT]]></helpinfo>
+				<masseditable>1</masseditable>
+				<entityidentifier>
+					<entityidfield>servicejobid</entityidfield>
+					<entityidcolumn>servicejobid</entityidcolumn>
+				</entityidentifier>
+			</field>
+			<field>
+				<fieldname>execution_date</fieldname>
+				<uitype>5</uitype>
+				<columnname>execution_date</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>execution_date</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<selected>0</selected>
+				<sequence>3</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~M</typeofdata>
+				<quickcreate>0</quickcreate>
+				<quickcreatesequence>0</quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[LBL_EXEC_DATE_HELPTEXT]]></helpinfo>
+				<masseditable>1</masseditable>
+				<entityidentifier>
+					<entityidfield>servicejobid</entityidfield>
+					<entityidcolumn>servicejobid</entityidcolumn>
+				</entityidentifier>
+			</field>
+			<field>
+				<fieldname>related_asset_id</fieldname>
+				<uitype>5</uitype>
+				<columnname>related_asset_id</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>related_asset</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<selected>0</selected>
+				<sequence>4</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~M</typeofdata>
+				<quickcreate>0</quickcreate>
+				<quickcreatesequence>0</quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[LBL_EXEC_DATE_HELPTEXT]]></helpinfo>
+				<masseditable>0</masseditable>
+				<entityidentifier>
+					<entityidfield>servicejobid</entityidfield>
+					<entityidcolumn>servicejobid</entityidcolumn>
+				</entityidentifier>
+				<relatedmodules>
+					<relatedmodule>Assets</relatedmodule>
+				</relatedmodules>				
+			</field>
+			<field>
+				<fieldname>assigned_user_id</fieldname>
+				<uitype>53</uitype>
+				<columnname>smownerid</columnname>
+				<tablename>vtiger_crmentity</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>Assigned To</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<selected>0</selected>
+				<sequence>5</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~M</typeofdata>
+				<quickcreate>1</quickcreate>
+				<quickcreatesequence>1</quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>1</masseditable>
+			</field>
+			<field>
+				<fieldname>createdtime</fieldname>
+				<uitype>70</uitype>
+				<columnname>createdtime</columnname>
+				<tablename>vtiger_crmentity</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>Created Time</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<selected>0</selected>
+				<sequence>6</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>DT~O</typeofdata>
+				<quickcreate>3</quickcreate>
+				<quickcreatesequence>8</quickcreatesequence>
+				<displaytype>2</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>1</masseditable>
+			</field>
+			<field>
+				<fieldname>modifiedtime</fieldname>
+				<uitype>70</uitype>
+				<columnname>modifiedtime</columnname>
+				<tablename>vtiger_crmentity</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>Modified Time</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<selected>0</selected>
+				<sequence>7</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>DT~O</typeofdata>
+				<quickcreate>3</quickcreate>
+				<quickcreatesequence>9</quickcreatesequence>
+				<displaytype>2</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>1</masseditable>
+			</field>
+		</fields>
+	</block>
+	<block>
+		<label>LBL_CUSTOM_INFORMATION</label>
+	</block>
+	<block>
+		<label>LBL_DESCRIPTION_INFORMATION</label>
+		<fields>
+			<field>
+				<fieldname>description</fieldname>
+				<uitype>19</uitype>
+				<columnname>description</columnname>
+				<tablename>vtiger_crmentity</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>Description</fieldlabel>
+				<readonly>1</readonly>
+				<presence>2</presence>
+				<selected>0</selected>
+				<sequence>1</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~O</typeofdata>
+				<quickcreate>1</quickcreate>
+				<quickcreatesequence>10</quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>1</masseditable>
+			</field>
+		</fields>
+	</block>
+</blocks>
+<customviews>
+	<customview>
+		<viewname>All</viewname>
+		<setdefault>true</setdefault>
+		<setmetrics>false</setmetrics>
+		<fields>
+			<field>
+				<fieldname>servicejob_no</fieldname>
+				<columnindex>0</columnindex>
+			</field>
+			<field>
+				<fieldname>procedure</fieldname>
+				<columnindex>1</columnindex>
+			</field>
+			<field>
+				<fieldname>execution_date</fieldname>
+				<columnindex>2</columnindex>
+			</field>
+			<field>
+				<fieldname>related_asset_id</fieldname>
+				<columnindex>3</columnindex>
+			</field>
+			<field>
+				<fieldname>assigned_user_id</fieldname>
+				<columnindex>4</columnindex>
+			</field>
+			<field>
+				<fieldname>description</fieldname>
+				<columnindex>5</columnindex>
+			</field>
+		</fields>
+	</customview>
+</customviews>
+<sharingaccess>
+	<default>public</default>
+</sharingaccess>
+<actions>
+	<action>
+	<name><![CDATA[Merge]]></name>
+	<status>enabled</status>
+	</action>
+	<action>
+	<name><![CDATA[Import]]></name>
+	<status>enabled</status>
+	</action>
+	<action>
+	<name><![CDATA[Export]]></name>
+	<status>enabled</status>
+	</action>
+</actions>
+<relatedlists>
+</relatedlists>
+<events>
+</events>
+<customlinks>
+</customlinks>
+<crons>
+</crons>
+</module>
