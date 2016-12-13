@@ -79,6 +79,26 @@
 				</entityidentifier>
 			</field>
 			<field>
+				<fieldname>procedure</fieldname>
+				<uitype>16</uitype>
+				<columnname>procedure</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>procedure</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<defaultvalue></defaultvalue>
+				<sequence>2</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~M</typeofdata>
+				<quickcreate>0</quickcreate>
+				<quickcreatesequence></quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>0</masseditable>
+			</field>			
+			<field>
 				<fieldname>execution_date</fieldname>
 				<uitype>5</uitype>
 				<columnname>execution_date</columnname>
