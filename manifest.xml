@@ -39,6 +39,7 @@
 				  `service_procedure` VARCHAR(255) DEFAULT NULL,
 				  `servicejob_status` VARCHAR(255) DEFAULT NULL, 
 				  `servicejob_productname` VARCHAR(255) DEFAULT NULL, 
+				  `mechanic_remarks` MEDIUMTEXT DEFAULT NULL, 
 				  `execution_date` DATE,
 				  `related_asset_id` INT(11), 
 				  `related_so_id` INT(11), 
@@ -305,6 +306,26 @@
 				<helpinfo><![CDATA[]]></helpinfo>
 				<masseditable>1</masseditable>
 			</field>
+			<field>
+				<fieldname>mechanic_remarks</fieldname>
+				<uitype>19</uitype>
+				<columnname>mechanic_remarks</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>mechanic_remarks</fieldlabel>
+				<readonly>1</readonly>
+				<presence>2</presence>
+				<selected>0</selected>
+				<sequence>2</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~O</typeofdata>
+				<quickcreate>1</quickcreate>
+				<quickcreatesequence>10</quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>1</masseditable>
+			</field>			
 		</fields>
 	</block>
 </blocks>
