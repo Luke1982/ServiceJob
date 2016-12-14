@@ -9,15 +9,31 @@
  ************************************************************************************/
 
 $mod_strings = Array(
-	'ModuleName' => 'Module Name',
-	'SINGLE_ModuleName' => 'Module Name',
-	'ModuleName ID' => 'Module Name ID',
+	'ServiceJob' => 'Service Jobs',
+	'SINGLE_ServiceJob' => 'Service Job',
+	'ServiceJob ID' => 'Service Job',
 
-	'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-	'LBL_MODULEBLOCK_INFORMATION' => 'ModuleBlock Information',
-	'LBL_DESCRIPTION_INFORMATION' => 'Description',
+	'LBL_SERVICEJOB_CUSTOM_INFORMATION' => 'Custom Information',
+	'LBL_SERVICEJOB_INFORMATION' => 'Service Job Information',
+	'LBL_SERVICEJOB_DESCRIPTION_INFORMATION' => 'Description',
 
-	'ModuleFieldLabel' => 'ModuleFieldLabel Text',
+	// field labels
+	'servicejob_no' => 'Service Job No.',
+	'service_procedure' => 'Service Procedure',
+	'servicejob_status' => 'Service Job status',
+	'execution_date' => 'Service execution date',
+	'related_asset_id' => 'Related asset',
+	'related_so_id' => 'Related salesorder',
+
+	// Status dropdown
+	'Open' => 'Open',
+	'Planned' => 'Planned',
+	'Completed' => 'Completed',
+	'Cancelled' => 'Cancelled',
+
+	// Procedure dropdown
+	'Maintenance job' => 'Maintenance job',
+	'Annual check job' => 'Annual check job'
 );
 
 ?>

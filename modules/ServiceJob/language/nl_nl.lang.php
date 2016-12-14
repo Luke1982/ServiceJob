@@ -9,15 +9,31 @@
  ************************************************************************************/
 
 $mod_strings = Array(
-	'ModuleName' => 'Module Name',
-	'SINGLE_ModuleName' => 'Module Name',
-	'ModuleName ID' => 'Module Name ID',
+	'ServiceJob' => 'Keuringen',
+	'SINGLE_ServiceJob' => 'Keuring',
+	'ServiceJob ID' => 'Keuringen',
 
-	'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-	'LBL_MODULEBLOCK_INFORMATION' => 'ModuleBlock Information',
-	'LBL_DESCRIPTION_INFORMATION' => 'Verkoopkans omschrijving',
+	'LBL_SERVICEJOB_CUSTOM_INFORMATION' => 'Eigen informatie',
+	'LBL_SERVICEJOB_INFORMATION' => 'Keuringsinformatie',
+	'LBL_SERVICEJOB_DESCRIPTION_INFORMATION' => 'Beschrijving',
 
-	'ModuleFieldLabel' => 'ModuleFieldLabel Text',
+	// field labels
+	'servicejob_no' => 'Keuringsnummer',
+	'service_procedure' => 'Keuringsprocedure',
+	'servicejob_status' => 'Status keuring',
+	'execution_date' => 'Uitvoeringsdatum keuring',
+	'related_asset_id' => 'Gerelateerde activa',
+	'related_so_id' => 'Gerelateerde order',
+
+	// Status dropdown
+	'Open' => 'Open',
+	'Planned' => 'Gepland',
+	'Completed' => 'Gekeurd',
+	'Cancelled' => 'Geannulleerd',
+
+	// Procedure dropdown
+	'Maintenance job' => 'Onderhoudsbeurt',
+	'Annual check job' => 'Jaarlijkse controle'
 );
 
 ?>
