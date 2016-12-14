@@ -416,6 +416,8 @@ class ServiceJob extends CRMEntity {
 			$this->relateServiceJobToSalesOrders();
 			// create an event handler for saving salesorders
 			$this->createSoEventHandler();
+			// Create a custom webservice operation
+			$this->createWebServiceOperation();
 
 		} else if($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
