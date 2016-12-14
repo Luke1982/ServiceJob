@@ -514,6 +514,27 @@ class ServiceJob extends CRMEntity {
 		$em->registerHandler($eventName, $filePath, $className);		
 	}
 
+	/*
+	 * Creates a custom webservice operation for this module
+	 */
+	private function createWebServiceOperation() {
+		require_once('include/Webservices/Utils.php');
+
+		$operation = array(
+						'name'		=> 'closeServiceJob',
+						'include'	=> 'modules/ServiceJob/resources/handlers/closeServiceJob.php',
+						'handler'	=> 'closeServiceJob',
+						'prelogin'	=> 0,
+						'type'		=> 'POST',		
+						'parameters' => array(
+								array('name' => 'id', 'type' =>	'String'),
+								array('name' => 'values', 'type' => 'Encoded')
+						)
+					);
+
+		registerWSAPI($operation);		
+	}
+
 	/**
 	 * Handle saving related module information.
 	 * NOTE: This function has been added to CRMEntity (base class).
