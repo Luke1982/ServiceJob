@@ -197,6 +197,7 @@
 					<relatedmodule>SalesOrder</relatedmodule>
 				</relatedmodules>				
 			</field>
+			<field>
 				<fieldname>servicejob_productname</fieldname>
 				<uitype>1</uitype>
 				<columnname>servicejob_productname</columnname>
