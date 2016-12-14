@@ -9,14 +9,13 @@ window.addEventListener("load", function(){
 			autoFirst: true,
 			data: function(item, input) {
 				return {
-					label : item.name + " | " + item.serial + " | " + item.status,
+					label : item.name + " | " + item.productname + " | " + item.serial,
 					value : item.id,
 				}
 			}
 		});
 
 	input.addEventListener("input", function(){
-
 		var accountId = document.getElementsByName("account_id")[0].value;
 		var r = new XMLHttpRequest();
 
@@ -30,11 +29,9 @@ window.addEventListener("load", function(){
 
 		r.open("GET", "index.php?module=ServiceJob&action=ServiceJobAjax&file=returnAssetsForAccount&accountid="+accountId, true);
 		r.send();
-
 	});
 
 	window.addEventListener("awesomplete-selectcomplete", function(e){
-
 		var value = e.text.value;
 		var labelArray = e.text.split("|");
 		var row = document.getElementsByClassName("related_asset_row")[0];
@@ -47,13 +44,12 @@ window.addEventListener("load", function(){
 
 		var newHiddenInput = newRow.getElementsByTagName("input")[0];
 		newHiddenInput.value = value;
-		newHiddenInput.name = "hdn_asset[" + value + "]";
+		newHiddenInput.name = "hdn_asset[" + value + "][" + labelArray[1] + "]";
 
 		row.parentElement.appendChild(newRow);
 
 		newRow.addEventListener("click", function(e){
 			e.srcElement.parentElement.parentElement.removeChild(e.srcElement.parentElement);
-			console.log(e.srcElement.parentElement);
 		});
 
 		document.getElementById("related_asset_input").value = "";

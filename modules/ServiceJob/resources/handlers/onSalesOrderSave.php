@@ -21,6 +21,7 @@ Class SoSaveHandler extends VTEventHandler {
 					$sj_focus->column_fields['related_asset_id'] = $v;
 					$sj_focus->column_fields['related_so_id'] = $soId;
 					$sj_focus->column_fields['servicejob_status'] = 'Planned';
+					$sj_focus->column_fields['servicejob_productname'] = trim($k);
 
 			 		$handler = vtws_getModuleHandlerFromName('ServiceJob', $current_user); 
 			 		$meta = $handler->getMeta();
@@ -30,7 +31,6 @@ Class SoSaveHandler extends VTEventHandler {
 
 			 		$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $sj_focus->id, 'ServiceJob'));
 			 		$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $v, 'Assets'));
-
 				}
 			}
 
