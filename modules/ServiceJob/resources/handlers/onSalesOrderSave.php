@@ -13,15 +13,15 @@ Class SoSaveHandler extends VTEventHandler {
 			require_once('modules/ServiceJob/ServiceJob.php');
 			
 			foreach ($_REQUEST['hdn_asset'] as $k => $v) {
-				if ($v != '') {
+				if ($k != '') {
 
 					$sj_focus = new ServiceJob();
 					$sj_focus->column_fields['assigned_user_id'] = $soData['assigned_user_id'];
 					$sj_focus->column_fields['execution_date'] = $soData['duedate'];
-					$sj_focus->column_fields['related_asset_id'] = $v;
+					$sj_focus->column_fields['related_asset_id'] = $k;
 					$sj_focus->column_fields['related_so_id'] = $soId;
 					$sj_focus->column_fields['servicejob_status'] = 'Planned';
-					$sj_focus->column_fields['servicejob_productname'] = trim($k);
+					$sj_focus->column_fields['servicejob_productname'] = trim($v);
 
 			 		$handler = vtws_getModuleHandlerFromName('ServiceJob', $current_user); 
 			 		$meta = $handler->getMeta();
