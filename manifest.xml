@@ -37,7 +37,7 @@
 				  `servicejobid` INT(11) NOT NULL,
 				  `servicejob_no` VARCHAR(56) DEFAULT NULL,
 				  `service_procedure` VARCHAR(255) DEFAULT NULL,
-				  `servicejob_status` VARCHAR(255) DEFAULT NULL,
+				  `servicejob_status` VARCHAR(255) DEFAULT NULL, 
 				  `servicejob_productname` VARCHAR(255) DEFAULT NULL, 
 				  `execution_date` DATE,
 				  `related_asset_id` INT(11), 
