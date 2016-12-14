@@ -37,6 +37,7 @@
 				  `servicejobid` INT(11) NOT NULL,
 				  `servicejob_no` VARCHAR(56) DEFAULT NULL,
 				  `service_procedure` VARCHAR(255) DEFAULT NULL,
+				  `servicejob_status` VARCHAR(255) DEFAULT NULL,
 				  `execution_date` DATE,
 				  `related_asset_id` INT(11), 
 				  `related_so_id` INT(11), 
@@ -99,10 +100,36 @@
 				<helpinfo><![CDATA[]]></helpinfo>
 				<masseditable>0</masseditable>
 				<picklistvalues>
-					<picklistvalue>Keuring 2-plaats remtestbank</picklistvalue>
-					<picklistvalue>Keuring 4-plaats remtestbank</picklistvalue>
-				</picklistvalues>				
-			</field>			
+					<picklistvalue>Maintenance job</picklistvalue>
+					<picklistvalue>Annual check job</picklistvalue>
+				</picklistvalues>
+			</field>
+			<field>
+				<fieldname>servicejob_status</fieldname>
+				<uitype>15</uitype>
+				<columnname>servicejob_status</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>servicejob_status</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<defaultvalue></defaultvalue>
+				<sequence>3</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~M</typeofdata>
+				<quickcreate>0</quickcreate>
+				<quickcreatesequence></quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>0</masseditable>
+				<picklistvalues>
+					<picklistvalue>Open</picklistvalue>
+					<picklistvalue>Planned</picklistvalue>
+					<picklistvalue>Completed</picklistvalue>
+					<picklistvalue>Cancelled</picklistvalue>
+				</picklistvalues>
+			</field>
 			<field>
 				<fieldname>execution_date</fieldname>
 				<uitype>5</uitype>
@@ -113,7 +140,7 @@
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>
-				<sequence>3</sequence>
+				<sequence>4</sequence>
 				<maximumlength>100</maximumlength>
 				<typeofdata>V~M</typeofdata>
 				<quickcreate>0</quickcreate>
@@ -133,7 +160,7 @@
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>
-				<sequence>4</sequence>
+				<sequence>5</sequence>
 				<maximumlength>100</maximumlength>
 				<typeofdata>V~M</typeofdata>
 				<quickcreate>0</quickcreate>
@@ -156,7 +183,7 @@
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>
-				<sequence>5</sequence>
+				<sequence>6</sequence>
 				<maximumlength>100</maximumlength>
 				<typeofdata>V~O</typeofdata>
 				<quickcreate>0</quickcreate>
@@ -179,7 +206,7 @@
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>
-				<sequence>6</sequence>
+				<sequence>7</sequence>
 				<maximumlength>100</maximumlength>
 				<typeofdata>V~M</typeofdata>
 				<quickcreate>1</quickcreate>
@@ -199,7 +226,7 @@
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>
-				<sequence>7</sequence>
+				<sequence>8</sequence>
 				<maximumlength>100</maximumlength>
 				<typeofdata>DT~O</typeofdata>
 				<quickcreate>3</quickcreate>
@@ -219,7 +246,7 @@
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>
-				<sequence>8</sequence>
+				<sequence>9</sequence>
 				<maximumlength>100</maximumlength>
 				<typeofdata>DT~O</typeofdata>
 				<quickcreate>3</quickcreate>
