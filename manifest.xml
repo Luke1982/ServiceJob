@@ -40,6 +40,7 @@
 				  `servicejob_status` VARCHAR(255) DEFAULT NULL, 
 				  `servicejob_productname` VARCHAR(255) DEFAULT NULL, 
 				  `mechanic_remarks` MEDIUMTEXT DEFAULT NULL, 
+				  `servicejob_report` BLOB DEFAULT NULL, 
 				  `execution_date` DATE,
 				  `related_asset_id` INT(11), 
 				  `related_so_id` INT(11), 
@@ -328,6 +329,9 @@
 			</field>			
 		</fields>
 	</block>
+	<block>
+		<label>ServiceJobReport</label>
+	</block>	
 </blocks>
 <customviews>
 	<customview>
