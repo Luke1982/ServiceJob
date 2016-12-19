@@ -28,13 +28,16 @@ $mod_strings = Array(
 	'mechanic_remarks' => 'Opmerkingen monteur',
 
 	// Block labels
-	'ServiceJobReport' => 'Keuringsrapport',	
+	'ServiceJobReport' => 'Keuringsrapport',
+
+	// Buttons
+	'create_pdf' => 'Maak PDF',
 
 	// Status dropdown
 	'Open' => 'Open',
 	'Planned' => 'Gepland',
 	'Completed' => 'Gekeurd',
-	'Cancelled' => 'Geannulleerd',
+	'Cancelled' => 'Geannuleerd',
 
 	// Procedure dropdown
 	'Maintenance job' => 'Onderhoudsbeurt',
