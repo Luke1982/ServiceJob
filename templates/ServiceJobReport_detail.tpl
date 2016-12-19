@@ -3,3 +3,4 @@
 <div id="reportwrapper" style="max-width: 793px;"></div>
 </td>
 <script type="text/javascript" src="modules/ServiceJob/resources/js/ServiceJobReportBlock.js"></script>
+<iframe src="" style="display: none;" id="download_pdf"></iframe>
