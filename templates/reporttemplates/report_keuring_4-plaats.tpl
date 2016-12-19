@@ -169,46 +169,46 @@
 			<tr>
 				<td style="background-color:rgb(204, 204, 204); height:30px; text-align:center; width:10%">1000</td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.lv_1000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_voor_1000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.rv_1000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.la_1000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_achter_1000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.ra_1000N}</strong></td>
 			</tr>
 			<tr>
 				<td style="background-color:rgb(204, 204, 204); height:30px; text-align:center; width:10%">3000</td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.lv_3000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_voor_3000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.rv_3000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.la_3000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_achter_3000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.ra_3000N}</strong></td>
 			</tr>
 			<tr>
 				<td style="background-color:rgb(204, 204, 204); height:30px; text-align:center; width:10%">5000</td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.lv_5000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_voor_5000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.rv_5000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.la_5000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_achter_5000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.ra_5000N}</strong></td>
 			</tr>
 			<tr>
 				<td style="background-color:rgb(204, 204, 204); height:30px; text-align:center; width:10%">7000</td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.lv_7000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_voor_7000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.rv_7000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.la_7000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_achter_7000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.ra_7000N}</strong></td>
 			</tr>
 			<tr>
 				<td style="background-color:rgb(204, 204, 204); height:30px; text-align:center; width:10%">10000</td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.lv_10000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_voor_10000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.rv_10000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.la_10000N}</strong></td>
-				<td style="text-align:right; width:10%"><strong>N</strong></td>
+				<td style="text-align:center; width:10%"><strong>{$reportvalues.verschil_achter_10000N}</strong></td>
 				<td style="text-align:center; width:15%"><strong>{$reportvalues.ra_10000N}</strong></td>
 			</tr>
 			<tr>
@@ -217,6 +217,7 @@
 		</tbody>
 	</table>
 
+	{if $reportvalues.mechanic_remarks != ""}
 	<p><span style="font-family:arial,helvetica,sans-serif; font-size:12px"><strong>Verrichte werkzaamheden / opmerkingen:</strong></span></p>
 
 	<table border="1" cellpadding="1" cellspacing="1" style="border-collapse:collapse; font-family:arial,helvetica,sans-serif; font-size:10px; width:100%">
@@ -226,6 +227,7 @@
 			</tr>
 		</tbody>
 	</table>
+	{/if}
 
 	<p><span style="font-family:arial,helvetica,sans-serif; font-size:12px"><strong>Gegevens keuringstechnicus en resultaat:</strong></span></p>
 
