@@ -24,6 +24,11 @@ $mod_strings = Array(
 	'execution_date' => 'Service execution date',
 	'related_asset_id' => 'Related asset',
 	'related_so_id' => 'Related salesorder',
+	'servicejob_productname' => 'Product name',
+	'mechanic_remarks' => 'Mechanic remarks',
+
+	// Block labels
+	'ServiceJobReport' => 'Service job report',
 
 	// Status dropdown
 	'Open' => 'Open',

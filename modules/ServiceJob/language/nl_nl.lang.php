@@ -24,6 +24,11 @@ $mod_strings = Array(
 	'execution_date' => 'Uitvoeringsdatum keuring',
 	'related_asset_id' => 'Gerelateerde activa',
 	'related_so_id' => 'Gerelateerde order',
+	'servicejob_productname' => 'Productnaam',
+	'mechanic_remarks' => 'Opmerkingen monteur',
+
+	// Block labels
+	'ServiceJobReport' => 'Keuringsrapport',	
 
 	// Status dropdown
 	'Open' => 'Open',
