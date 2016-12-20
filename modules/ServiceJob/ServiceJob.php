@@ -418,6 +418,8 @@ class ServiceJob extends CRMEntity {
 			$this->createSoEventHandler();
 			// Create a custom webservice operation
 			$this->createWebServiceOperation();
+			// Create the executing user in SO's
+			$this->createExecUserInSo();
 
 		} else if($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
@@ -437,6 +439,10 @@ class ServiceJob extends CRMEntity {
 			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='Assets' AND tabid=22");
 			$adb->query("DELETE FROM vtiger_relatedlists WHERE label='ServiceJob' AND tabid=22");
 			$adb->query("DELETE FROM vtiger_eventhandlers WHERE handler_class='SoSaveHandler'");
+
+			// Delete the executing user field in SalesOrder
+			$adb->query("ALTER TABLE vtiger_salesorder DROP COLUMN executing_user_id");
+			$adb->query("DELETE FROM vtiger_field WHERE columnname = 'executing_user_id' AND tabid = 22");
 
 			unlink('Smarty/templates/modules/SalesOrder/RelatedAssets_edit.tpl');
 			rmdir('Smarty/templates/modules/SalesOrder');
@@ -535,6 +541,25 @@ class ServiceJob extends CRMEntity {
 					);
 
 		registerWSAPI($operation);		
+	}
+
+	/*
+	 * Creates a field in SalesOrder that will hold the 'executing user id'
+	 */
+	private function createExecUserInSo() {
+		include_once('vtlib/Vtiger/Module.php');
+
+		$module = Vtiger_Module::getInstance('SalesOrder');
+		$blockInstance = Vtiger_Block::getInstance('LBL_SO_INFORMATION', $module);
+
+		$fieldInstance = new Vtiger_Field();
+		$fieldInstance->name = 'reports_to_id';
+		$fieldInstance->table = 'vtiger_salesorder';
+		$fieldInstance->column = 'executing_user_id';
+		$fieldInstance->columntype = 'INT(11)';
+		$fieldInstance->uitype = 101;
+		$fieldInstance->typeofdata = 'V~O';
+		$blockInstance->addField($fieldInstance);		
 	}
 
 	/**
