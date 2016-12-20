@@ -16,7 +16,7 @@ Class SoSaveHandler extends VTEventHandler {
 				if ($k != '') {
 
 					$sj_focus = new ServiceJob();
-					$sj_focus->column_fields['assigned_user_id'] = $soData['assigned_user_id'];
+					$sj_focus->column_fields['assigned_user_id'] = $soData['reports_to_id'];
 					$sj_focus->column_fields['execution_date'] = $soData['duedate'];
 					$sj_focus->column_fields['related_asset_id'] = $k;
 					$sj_focus->column_fields['related_so_id'] = $soId;
@@ -30,7 +30,7 @@ Class SoSaveHandler extends VTEventHandler {
 			 		$sj_focus->save('ServiceJob');
 
 			 		$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $sj_focus->id, 'ServiceJob'));
-			 		$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $v, 'Assets'));
+			 		$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $k, 'Assets'));
 				}
 			}
 
