@@ -24,6 +24,7 @@ Class ServiceJobReport {
 		global $adb;
 		$q = "SELECT vtiger_assets.*, 
 						vtiger_assetscf.*, 
+						vtiger_accountscf.*, 
 						vtiger_servicejob.servicejob_productname AS productname, 
 						vtiger_account.accountname, 
 						vtiger_accountshipads.ship_city, 
@@ -37,6 +38,8 @@ Class ServiceJobReport {
 						ON vtiger_assetscf.assetsid = vtiger_assets.assetsid 
 						INNER JOIN vtiger_account 
 						ON vtiger_assets.account = vtiger_account.accountid 
+						INNER JOIN vtiger_accountscf 
+						ON vtiger_accountscf.accountid = vtiger_account.accountid 
 						INNER JOIN vtiger_accountshipads 
 						ON vtiger_account.accountid = vtiger_accountshipads.accountaddressid 
 						INNER JOIN vtiger_products 
