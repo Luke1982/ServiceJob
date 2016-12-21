@@ -1,0 +1,32 @@
+/*#related_asset_searchrow td:first-child {
+	border-left: 1px solid #BBB;
+}
+#related_asset_searchrow td:last-child {
+	border-right: 1px solid #BBB;
+}*/
+#related_asset_searchrow td {
+	padding: 5px;
+}
+#related_asset_input {
+	border-radius: 5px;
+	padding: 4px;
+}
+#related_asset_table {
+	border-spacing: 0;
+}
+#related_asset_table tr:first-child,
+#related_asset_table tr:first-child:hover {
+	background-color: rgb(90,90,90);
+	color: #fff;
+	border: none;
+}
+#related_asset_table td {
+	padding: 8px;
+	border-bottom: 1px solid #BBB;
+}
+#related_asset_table tr:hover {
+	background-color: rgb(230,230,230);
+}
+#related_asset_table tr:hover {
+	background-color: rgb(230,230,230);
+}
