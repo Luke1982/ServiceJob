@@ -18,7 +18,7 @@ if (!isset($_REQUEST['pdfaction']) && $_REQUEST['pdfaction'] != 'delete') {
 	$pdf->writeHTML($report, true, false, false, false, '');
 
 	$filepath = $_SERVER['DOCUMENT_ROOT'].'modules/ServiceJob/tmp_pdf/';
-	$filename = $_REQUEST['filename'];
+	$filename = $_REQUEST['filename'] . '.pdf';
 	// $filename = $job_no . '_' . $procedure . '.pdf';
 
 	$pdf->Output($filepath . $filename, 'F');
