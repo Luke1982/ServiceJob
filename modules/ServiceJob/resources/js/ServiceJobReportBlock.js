@@ -31,7 +31,9 @@ function createPDF() {
 				var response = JSON.parse(r.response);
 				var downloadFrame = document.getElementById("download_pdf");
 				downloadFrame.src = response.download_loc;
-				deleteFile(response.delete_loc);
+				setTimeout(function(){
+					deleteFile(response.delete_loc);
+				},2000);				
 			}
 		}
 		r.open("GET", "index.php?module=ServiceJob&action=ServiceJobAjax&file=getReportPDF&sjid=" + crmid + "&filename=" + filename, true);
