@@ -16,6 +16,13 @@ window.addEventListener("load", function(){
 		});
 
 	input.addEventListener("input", function(){
+		// Get already selected serialnumbers to send with AJAX request
+		var selectedSerials = document.getElementById("related_asset_table").getElementsByClassName("related_asset_serial");
+		var serialList = "";
+		for (var i = 0; i < selectedSerials.length; i++) {
+			serialList += selectedSerials[i].innerHTML.trim() + ",";
+		}
+
 		var accountId = document.getElementsByName("account_id")[0].value;
 		var r = new XMLHttpRequest();
 
@@ -27,7 +34,7 @@ window.addEventListener("load", function(){
 			}
 		};
 
-		r.open("GET", "index.php?module=ServiceJob&action=ServiceJobAjax&file=returnAssetsForAccount&accountid="+accountId, true);
+		r.open("GET", "index.php?module=ServiceJob&action=ServiceJobAjax&file=returnAssetsForAccount&accountid="+accountId+"&selected="+serialList, true);
 		r.send();
 	});
 
@@ -41,6 +48,7 @@ window.addEventListener("load", function(){
 		newCells[0].innerHTML = labelArray[0];
 		newCells[1].innerHTML = labelArray[1];
 		newCells[2].innerHTML = labelArray[2];
+		newCells[2].className = "related_asset_serial";
 
 		var newHiddenInput = newRow.getElementsByTagName("input")[0];
 		newHiddenInput.value = labelArray[1];
