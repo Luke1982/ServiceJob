@@ -420,6 +420,8 @@ class ServiceJob extends CRMEntity {
 			$this->createWebServiceOperation();
 			// Create the executing user in SO's
 			$this->createExecUserInSo();
+			// Creates a 'related list' entry for ServiceJob in Assets
+			$this->relateServiceJobToAssets($modulename);
 
 		} else if($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
@@ -470,6 +472,15 @@ class ServiceJob extends CRMEntity {
 		mkdir('Smarty/templates/modules/SalesOrder');
 		copy('modules/ServiceJob/resources/templates/RelatedAssets_edit.tpl', 'Smarty/templates/modules/SalesOrder/RelatedAssets_edit.tpl');		
 
+	}
+
+	/*
+	 * Creates a related list for ServiceJobs in Asset details
+	 */
+	private function relateServiceJobToAssets($modulename) {
+		include_once('vtlib/Vtiger/Module.php');
+		$assets = Vtiger_Module::getInstance('Assets');
+		$assets->setRelatedList(Vtiger_Module::getInstance($modulename), 'Keuringen', Array('ADD','SELECT'));
 	}
 
 	/*
