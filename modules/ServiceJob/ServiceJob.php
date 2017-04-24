@@ -453,6 +453,10 @@ class ServiceJob extends CRMEntity {
 			// TODO Handle actions before this module is updated.
 		} else if($event_type == 'module.postupdate') {
 			// TODO Handle actions after this module is updated.
+			$moduleInstance = Vtiger_Module::getInstance($modulename);
+			if ($moduleInstance->version == "0.2") {
+				$this->zeroPointTwoUpdates();
+			}			
 		}
 	}
 
@@ -571,6 +575,23 @@ class ServiceJob extends CRMEntity {
 		$fieldInstance->uitype = 101;
 		$fieldInstance->typeofdata = 'V~O';
 		$blockInstance->addField($fieldInstance);		
+	}
+
+	/*
+	 * General function for the updates in version 0.2
+	 * - 	Add a handler to aftersave event for this module, that create a related 
+	 		list listing for the ServiceJob in the related asset
+	 */
+	private function zeroPointTwoUpdates() {
+		global $adb;
+		require 'include/events/include.inc';
+		$em = new VTEventsManager($adb);
+
+		$eventName = 'vtiger.entity.aftersave';
+		$filePath = 'modules/ServiceJob/resources/handlers/onServiceJobSave.php';
+		$className = 'SJSaveHandler';
+
+		$em->registerHandler($eventName, $filePath, $className);		
 	}
 
 	/**
