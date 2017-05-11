@@ -6,6 +6,7 @@
 function closeServiceJob($id, $values, $user) {
 
 	require_once('modules/ServiceJob/ServiceJob.php');
+	require_once('modules/Assets/Assets.php');
 	require_once('modules/ServiceJob/resources/classes/ServiceJobReport.php');
 	require_once('Smarty_setup.php');
 
@@ -24,6 +25,21 @@ function closeServiceJob($id, $values, $user) {
 	$sj->column_fields = DataTransform::sanitizeRetrieveEntityInfo($sj->column_fields, $meta);
 
 	$sj->save('ServiceJob');
+
+	if (array_key_exists('new_asset_expirydate', $values))
+		$rel_asset_id = $sj->column_fields['related_asset_id'];
+		$ass = new Assets();
+		$ass->retrieve_entity_info($rel_asset_id, 'Assets');
+		$ass->id = $rel_asset_id;
+		$ass->mode = 'edit';
+
+		$ass->column_fields['cf_731'] = $values['new_asset_expirydate'];
+		$handler = vtws_getModuleHandlerFromName('Assets', $user);
+		$meta = $handler->getMeta();
+		$ass->column_fields = DataTransform::sanitizeRetrieveEntityInfo($ass->column_fields, $meta);
+
+		$ass->save('Assets');
+	}
 	
 	$report = new ServiceJobReport();
 	$smarty = new vtigerCRM_Smarty();
