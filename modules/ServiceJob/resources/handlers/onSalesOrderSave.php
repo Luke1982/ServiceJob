@@ -11,6 +11,7 @@ Class SoSaveHandler extends VTEventHandler {
 			$soData = $entityData->getData();
 
 			require_once('modules/ServiceJob/ServiceJob.php');
+			require_once('modules/Assets/Assets.php');
 			
 			foreach ($_REQUEST['hdn_asset'] as $k => $v) {
 				if ($k != '') {
@@ -31,6 +32,17 @@ Class SoSaveHandler extends VTEventHandler {
 
 			 		$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $sj_focus->id, 'ServiceJob'));
 			 		$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $k, 'Assets'));
+
+			 		// Update the asset "keurstatus"
+					$ass = new Assets();
+					$ass->retrieve_entity_info($k, 'Assets');
+					$ass->id = $k;
+					$ass->mode = 'edit';
+					$ass->column_fields['cf_966'] = 'Keuring ingepland'; // Adjust custom field ID
+					$handler = vtws_getModuleHandlerFromName('Assets', $current_user);
+					$meta = $handler->getMeta();
+					$ass->column_fields = DataTransform::sanitizeRetrieveEntityInfo($ass->column_fields, $meta);
+					$ass->save('Assets');
 				}
 			}
 
