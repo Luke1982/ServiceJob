@@ -19,6 +19,12 @@ function closeServiceJob($id, $values, $user) {
 		$sj->mode = 'edit';
 
 		$sj->column_fields['servicejob_status'] = 'Completed';
+		// Handle specific cases for approval or disapproval
+		if ($values['goed_afkeur'] == 'goedkeur') {
+			$sj->column_fields['servicejob_status'] = 'Approved';
+		} else if ($values['goed_afkeur'] == 'afkeur') {
+			$sj->column_fields['servicejob_status'] = 'Disapproved';
+		}
 		$sj->column_fields['mechanic_remarks'] = $values['mechanic_remarks'];
 		$sj->column_fields['assigned_user_id'] = $user->id;
 
