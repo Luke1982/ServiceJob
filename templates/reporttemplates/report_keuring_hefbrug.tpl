@@ -782,7 +782,7 @@
 		<tr>
 			<td style="width:80%">
 				<span>Deze hefbrug / hefinrichting is gekeurd en voldoet</span>
-				<span><strong>&nbsp;{if $reportvalues.goed_afkeur == 'goedkeur'}wel{else}niet{/if}&nbsp;</strong></span>
+				<span><strong>&nbsp;{if $reportvalues.goed_afkeur == 'goedkeur' || $reportvalues.goed_afkeur == 'goed_na_rep'}wel{elseif $reportvalues.goed_afkeur == 'afkeur' || $reportvalues.goed_afkeur == 'tijdelijk'}niet{/if}&nbsp;</strong></span>
 				<span>aan alle relevante eisen</span>
 			</td>
 			<td style="width:20%">Eindtijd keuring:&nbsp;{$reportvalues.eindtijd}&nbsp;uur</td>
@@ -792,7 +792,7 @@
 			<table border="0" style="border-collapse:collapse; width:100%">
 				<tbody>
 					<tr>
-						<td style="width:30%">{if $reportvalues.verloopdatum != ''}X{/if}</td>
+						<td style="width:30%">{if $reportvalues.goed_afkeur == 'tijdelijk'}X{/if}</td>
 						<td style="width:70%"><strong>Deze hefbrug / hefinrichting krijgt een <u>&eacute;&eacute;nmalige</u> tijdelijke goedkeuring in verband met een aanpassing (maximaal drie maanden)</strong></td>
 					</tr>
 				</tbody>
@@ -818,9 +818,9 @@
 			<table border="0" style="border-collapse:collapse; width:100%">
 				<tbody>
 					<tr>
-						<td style="width:20%">{if $reportvalues.goed_na_rep == 'ja'}X{/if}</td>
+						<td style="width:20%">{if $reportvalues.goed_afkeur == 'goed_na_rep'}X{/if}</td>
 						<td style="width:30%">JA</td>
-						<td style="width:20%">{if $reportvalues.goed_na_rep == 'nee'}X{/if}</td>
+						<td style="width:20%">{if $reportvalues.goed_afkeur != 'goed_na_rep'}X{/if}</td>
 						<td style="width:30%">NEE</td>
 					</tr>
 				</tbody>
