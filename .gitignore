@@ -1,1 +1,4 @@
 modules/ServiceJob/manifest.xml
+modules/ServiceJob/test.php
+servicejob.sublime-project
+servicejob.sublime-workspace
