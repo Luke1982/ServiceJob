@@ -456,7 +456,9 @@ class ServiceJob extends CRMEntity {
 			$moduleInstance = Vtiger_Module::getInstance($modulename);
 			if ($moduleInstance->version == "0.2") {
 				$this->zeroPointTwoUpdates();
-			}			
+			} else if ($moduleInstance->version == '0.2.2') {
+				$this->zeroTwentyTwoUpdates();
+			}		
 		}
 	}
 
@@ -592,6 +594,31 @@ class ServiceJob extends CRMEntity {
 		$className = 'SJSaveHandler';
 
 		$em->registerHandler($eventName, $filePath, $className);		
+	}
+
+	/*
+	 * General function for the updates in version 0.2.2
+	 * - 	Add a handler to aftersave event for this module, that create a related 
+	 		list listing for the ServiceJob in the related asset
+	 */
+	private function zeroTwentyTwoUpdates() {
+		$this->addPicklistValues('Approved,Disapproved', 'servicejob_status')	
+	}
+
+	private function addPicklistValues($statusses = '', $fieldname = '') {
+		global $adb;
+		$newPicklist = explode(",", $newValues);
+		$tableName = $fieldName;
+
+		foreach($newPicklist as $key => $val)
+		{	
+			$picklistvalue_id = getUniquePicklistID();
+			$picklist_id = $adb->getUniqueID("vtiger_".$tableName);
+			
+			$query = "insert into vtiger_".$tableName." values(?,?,?,?)";		
+			$params = array($picklist_id, $val, 1, $picklistvalue_id);			
+			$adb->pquery($query, $params);
+		}
 	}
 
 	/**
