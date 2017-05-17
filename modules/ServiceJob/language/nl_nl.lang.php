@@ -38,6 +38,8 @@ $mod_strings = Array(
 	'Planned' => 'Gepland',
 	'Completed' => 'Gekeurd',
 	'Cancelled' => 'Geannuleerd',
+	'Appoved' => 'Goedegkeurd',
+	'Disapproved' => 'Afgekeurd',
 
 	// Procedure dropdown
 	'Maintenance job' => 'Onderhoudsbeurt',
