@@ -3,7 +3,7 @@
 <name>ServiceJob</name>
 <label>ServiceJob</label>
 <parent>Tools</parent>
-<version>0.2.6</version>
+<version>0.2.7</version>
 <short_description>A module that will keep track of service jobs done in the field</short_description>
 <dependencies>
 <vtiger_version>5.8.0</vtiger_version>

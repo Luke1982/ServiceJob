@@ -456,8 +456,8 @@ class ServiceJob extends CRMEntity {
 			$moduleInstance = Vtiger_Module::getInstance($modulename);
 			if ($moduleInstance->version == "0.2") {
 				$this->zeroPointTwoUpdates();
-			} else if ($moduleInstance->version == "0.2.6") {
-				$this->zeroTwoSixUpdates();
+			} else if ($moduleInstance->version == "0.2.7") {
+				$this->zeroTwoSevenUpdates($moduleInstance);
 			}		
 		}
 	}
@@ -597,34 +597,16 @@ class ServiceJob extends CRMEntity {
 	}
 
 	/*
-	 * General function for the updates in version 0.2.2
+	 * General function for the updates in version 0.2.7
 	 * - 	Add a handler to aftersave event for this module, that create a related 
 	 		list listing for the ServiceJob in the related asset
 	 */
-	private function zeroTwoSixUpdates() {
-		$this->addPicklistValues('Approved,Disapproved', 'servicejob_status');
-	}
-
-
-	/*
-	 * Helper function that adds values to an existing picklist
-	 * @param 1: comma separated list of values to add
-	 * @param 2: fieldname of the picklist to add to
-	 */
-	private function addPicklistValues($values = '', $fieldname = '') {
-		global $adb;
-		$newPicklist = explode(",", $values);
-		$tableName = $fieldname;
-
-		foreach($newPicklist as $val)
-		{	
-			$picklistvalue_id = getUniquePicklistID();
-			$picklist_id = $adb->getUniqueID("vtiger_".$tableName);
-			
-			$query = "insert into vtiger_".$tableName." values(?,?,?,?)";		
-			$params = array($picklist_id, $val, 1, $picklistvalue_id);			
-			$adb->pquery($query, $params);
-		}
+	private function zeroTwoSevenUpdates($moduleInstance) {
+		$field = Vtiger_Field::getInstance('servicejob_status',$moduleInstance);
+		$field->setPicklistValues(array(
+				'Approved',
+				'Disapproved'
+			));
 	}
 
 	/**
