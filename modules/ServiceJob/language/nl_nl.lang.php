@@ -38,7 +38,7 @@ $mod_strings = Array(
 	'Planned' => 'Gepland',
 	'Completed' => 'Gekeurd',
 	'Cancelled' => 'Geannuleerd',
-	'Approved' => 'Goedegkeurd',
+	'Approved' => 'Goedgekeurd',
 	'Disapproved' => 'Afgekeurd',
 
 	// Procedure dropdown
