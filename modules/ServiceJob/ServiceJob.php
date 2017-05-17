@@ -456,8 +456,8 @@ class ServiceJob extends CRMEntity {
 			$moduleInstance = Vtiger_Module::getInstance($modulename);
 			if ($moduleInstance->version == "0.2") {
 				$this->zeroPointTwoUpdates();
-			} else if ($moduleInstance->version == "0.2.7") {
-				$this->zeroTwoSevenUpdates($moduleInstance);
+			} else if ($moduleInstance->version == "0.28") {
+				$this->zeroTwentyEightUpdates($moduleInstance);
 			}		
 		}
 	}
@@ -601,7 +601,7 @@ class ServiceJob extends CRMEntity {
 	 * - 	Add a handler to aftersave event for this module, that create a related 
 	 		list listing for the ServiceJob in the related asset
 	 */
-	private function zeroTwoSevenUpdates($moduleInstance) {
+	private function zeroTwentyEightUpdates($moduleInstance) {
 		$field = Vtiger_Field::getInstance('servicejob_status',$moduleInstance);
 		$field->setPicklistValues(array(
 				'Approved',
