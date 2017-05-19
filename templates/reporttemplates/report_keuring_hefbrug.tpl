@@ -663,6 +663,7 @@
 			</td>
 			<td colspan="1">&nbsp;</td>
 		</tr>
+		{if $reportvalues.apk_keuring == 'wel_apk'}
 		<tr>
 			<td colspan="8" style="background-color:#cccccc"><strong>8. RDW controle aspecten APK hefbrug:</strong></td>
 		</tr>
@@ -768,6 +769,7 @@
 			</td>
 			<td colspan="1">&nbsp;</td>
 		</tr>
+		{/if}
 		<tr>
 			<td colspan="8" style="background-color:#cccccc"><strong>Opmerkingen en/of reparatieadvies</strong></td>
 		</tr>
