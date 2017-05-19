@@ -460,7 +460,7 @@ class ServiceJob extends CRMEntity {
 				$this->zeroPointTwoUpdates();
 			} else if ($moduleInstance->version == "0.31") {
 				$this->addStatusApprovedAndDisapproved();
-			} else if ($moduleInstance->version == "0.4") {
+			} else if ($moduleInstance->version == "0.41") {
 				$this->createReportRetrievalOperation();
 			}	
 		}
@@ -577,7 +577,7 @@ class ServiceJob extends CRMEntity {
 						'include'	=> 'modules/ServiceJob/resources/handlers/retrieveServiceJobReport.php',
 						'handler'	=> 'retrieveServiceJobReport',
 						'prelogin'	=> 0,
-						'type'		=> 'POST',		
+						'type'		=> 'GET',		
 						'parameters' => array(
 								array('name' => 'id', 'type' =>	'String')
 						)
