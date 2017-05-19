@@ -418,6 +418,8 @@ class ServiceJob extends CRMEntity {
 			$this->createSoEventHandler();
 			// Create a custom webservice operation
 			$this->createWebServiceOperation();
+			// Create a webservice operation that allows retrieving reports
+			$this->createReportRetrievalOperation();
 			// Create the executing user in SO's
 			$this->createExecUserInSo();
 			// Creates a 'related list' entry for ServiceJob in Assets
@@ -458,7 +460,9 @@ class ServiceJob extends CRMEntity {
 				$this->zeroPointTwoUpdates();
 			} else if ($moduleInstance->version == "0.31") {
 				$this->addStatusApprovedAndDisapproved();
-			}		
+			} else if ($moduleInstance->version == "0.4") {
+				$this->createReportRetrievalOperation();
+			}	
 		}
 	}
 
@@ -554,6 +558,28 @@ class ServiceJob extends CRMEntity {
 						'parameters' => array(
 								array('name' => 'id', 'type' =>	'String'),
 								array('name' => 'values', 'type' => 'Encoded')
+						)
+					);
+
+		registerWSAPI($operation);		
+	}
+
+	/*
+	 * Creates webservice operation that permits a webservice
+	 * to retrieve full HTML reports for a servicejob
+	 * It is the retrieving parts job to present it.
+	 */
+	private function createReportRetrievalOperation() {
+		require_once('include/Webservices/Utils.php');
+
+		$operation = array(
+						'name'		=> 'retrieveServiceJobReport',
+						'include'	=> 'modules/ServiceJob/resources/handlers/retrieveServiceJobReport.php',
+						'handler'	=> 'retrieveServiceJobReport',
+						'prelogin'	=> 0,
+						'type'		=> 'POST',		
+						'parameters' => array(
+								array('name' => 'id', 'type' =>	'String')
 						)
 					);
 
