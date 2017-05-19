@@ -54,8 +54,8 @@
 		<tr>
 			<td colspan="1" style="width:20%">Naam keurmeester</td>
 			<td colspan="3" style="width:40%">{$reportmeta.user.first_name}&nbsp;{$reportmeta.user.last_name}</td>
-			<td colspan="1" style="width:20%">Keurmeestercode</td>
-			<td colspan="3" style="width:20%">{$reportvalues.keurm_code}</td>
+			<td colspan="1" style="width:20%">Soort keuring</td>
+			<td colspan="3" style="width:20%">{$reportvalues.soort_keuring}</td>
 		</tr>
 		<tr>
 			<td colspan="1" style="background-color:#cccccc; width:20%"><strong>Identificatie Hefbrug</strong></td>
@@ -75,8 +75,8 @@
 			<td colspan="1">{$reportmeta.cf_905} Kg</td>
 			<td colspan="1">Bouwjaar</td>
 			<td colspan="2">{$reportmeta.cf_903}</td>
-			<td colspan="1">Vorig Keuringsnummer</td>
-			<td colspan="2">{$reportvalues.vorig_keurnummer}</td>
+			<td colspan="1"></td>
+			<td colspan="2"></td>
 		</tr>
 		<tr>
 			<td colspan="7" style="background-color:#cccccc"><strong>1. Controle algemene aspecten</strong></td>
