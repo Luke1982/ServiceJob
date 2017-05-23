@@ -26,6 +26,8 @@ $mod_strings = Array(
 	'related_so_id' => 'Gerelateerde order',
 	'servicejob_productname' => 'Productnaam',
 	'mechanic_remarks' => 'Opmerkingen monteur',
+	'servicejob_for_serial' => 'Keuring voor serienummer',
+
 
 	// Block labels
 	'ServiceJobReport' => 'Keuringsrapport',

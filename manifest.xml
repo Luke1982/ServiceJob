@@ -3,7 +3,7 @@
 <name>ServiceJob</name>
 <label>ServiceJob</label>
 <parent>Tools</parent>
-<version>0.41</version>
+<version>0.42</version>
 <short_description>A module that will keep track of service jobs done in the field</short_description>
 <dependencies>
 <vtiger_version>5.8.0</vtiger_version>
@@ -26,7 +26,7 @@
  * at <http://corebos.org/documentation/doku.php?id=en:devel:vpl11>
  *************************************************************************************************
  *  Module       : coreBOS ServiceJob
- *  Version      : 0.41
+ *  Version      : 0.42
  *************************************************************************************************/
 ]]></inline>
 </license>
@@ -39,6 +39,7 @@
 				  `service_procedure` VARCHAR(255) DEFAULT NULL,
 				  `servicejob_status` VARCHAR(255) DEFAULT NULL, 
 				  `servicejob_productname` VARCHAR(255) DEFAULT NULL, 
+				  `servicejob_for_serial` VARCHAR(255) DEFAULT NULL, 
 				  `mechanic_remarks` MEDIUMTEXT DEFAULT NULL, 
 				  `servicejob_report` BLOB DEFAULT NULL, 
 				  `execution_date` DATE,
@@ -222,6 +223,26 @@
 				<masseditable>0</masseditable>
 			</field>
 			<field>
+				<fieldname>servicejob_for_serial</fieldname>
+				<uitype>1</uitype>
+				<columnname>servicejob_for_serial</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>servicejob_for_serial</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<selected>0</selected>
+				<sequence>8</sequence>
+				<maximumlength>100</maximumlength>
+				<typeofdata>V~O</typeofdata>
+				<quickcreate>0</quickcreate>
+				<quickcreatesequence>0</quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[]]></helpinfo>
+				<masseditable>0</masseditable>
+			</field>
+			<field>
 				<fieldname>assigned_user_id</fieldname>
 				<uitype>53</uitype>
 				<columnname>smownerid</columnname>
@@ -231,7 +252,7 @@
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>
-				<sequence>8</sequence>
+				<sequence>9</sequence>
 				<maximumlength>100</maximumlength>
 				<typeofdata>V~M</typeofdata>
 				<quickcreate>1</quickcreate>
@@ -251,7 +272,7 @@
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>
-				<sequence>9</sequence>
+				<sequence>10</sequence>
 				<maximumlength>100</maximumlength>
 				<typeofdata>DT~O</typeofdata>
 				<quickcreate>3</quickcreate>
@@ -271,7 +292,7 @@
 				<readonly>1</readonly>
 				<presence>0</presence>
 				<selected>0</selected>
-				<sequence>10</sequence>
+				<sequence>11</sequence>
 				<maximumlength>100</maximumlength>
 				<typeofdata>DT~O</typeofdata>
 				<quickcreate>3</quickcreate>

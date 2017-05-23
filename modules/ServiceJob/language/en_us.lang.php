@@ -26,6 +26,7 @@ $mod_strings = Array(
 	'related_so_id' => 'Related salesorder',
 	'servicejob_productname' => 'Product name',
 	'mechanic_remarks' => 'Mechanic remarks',
+	'servicejob_for_serial' => 'Servicejob for serialnumber',
 
 	// Block labels
 	'ServiceJobReport' => 'Service job report',

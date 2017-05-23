@@ -462,6 +462,8 @@ class ServiceJob extends CRMEntity {
 				$this->addStatusApprovedAndDisapproved();
 			} else if ($moduleInstance->version == "0.41") {
 				$this->createReportRetrievalOperation();
+			} else if ($moduleInstance->version == "0.42") {
+				$this->createSerialField();
 			}	
 		}
 	}
@@ -634,6 +636,27 @@ class ServiceJob extends CRMEntity {
 				'Approved',
 				'Disapproved'
 			));
+	}
+
+	/*
+	 * Creates a field for the serial number from the asset
+	 */
+	private function createSerialField() {
+		$module = Vtiger_Module::getInstance('ServiceJob');
+		// Get the main info block for servicejobs
+		$block	= Vtiger_Block::getInstance('LBL_SERVICEJOB_INFORMATION', $module);
+		
+		// Setup the field
+		$field						=	new Vtiger_Field();
+		$field->name				=	'servicejob_for_serial';
+		$field->label				=	'servicejob_for_serial';
+		$field->table				=	'vtiger_servicejob';
+		$field->column				=	'servicejob_for_serial';
+		$field->columntype			=	'VARCHAR(255)';
+		$field->uitype				=	1;
+		$field->typeofdata			=	'V~O';
+	
+		$block->addField($field);
 	}
 
 	/**
