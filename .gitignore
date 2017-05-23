@@ -2,3 +2,5 @@ modules/ServiceJob/manifest.xml
 modules/ServiceJob/test.php
 servicejob.sublime-project
 servicejob.sublime-workspace
+.DS_Store
+modules/.DS_Store
