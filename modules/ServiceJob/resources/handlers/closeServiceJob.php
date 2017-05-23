@@ -27,6 +27,7 @@ function closeServiceJob($id, $values, $user) {
 		}
 		$sj->column_fields['mechanic_remarks'] = $values['mechanic_remarks'];
 		$sj->column_fields['assigned_user_id'] = $user->id;
+		$sj->column_fields['execution_date'] = date_format(new DateTime('now'), 'Y-m-d');
 
 		$handler = vtws_getModuleHandlerFromName('ServiceJob', $user);
 		$meta = $handler->getMeta();
