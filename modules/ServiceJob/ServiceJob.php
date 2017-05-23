@@ -462,7 +462,7 @@ class ServiceJob extends CRMEntity {
 				$this->addStatusApprovedAndDisapproved();
 			} else if ($moduleInstance->version == "0.41") {
 				$this->createReportRetrievalOperation();
-			} else if ($moduleInstance->version == "0.43") {
+			} else if ($moduleInstance->version == "0.44") {
 				$this->createSerialField();
 			}	
 		}
@@ -643,6 +643,8 @@ class ServiceJob extends CRMEntity {
 	 */
 	private function createSerialField() {
 		include_once('vtlib/Vtiger/Module.php');
+		include_once('include/utils/utils.php');
+
 		$module = Vtiger_Module::getInstance('ServiceJob');
 		// Get the main info block for servicejobs
 		$block	= Vtiger_Block::getInstance('LBL_SERVICEJOB_INFORMATION', $module);
