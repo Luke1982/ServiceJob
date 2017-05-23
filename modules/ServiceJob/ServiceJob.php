@@ -48,7 +48,7 @@ class ServiceJob extends CRMEntity {
 		/* Format: Field Label => Array(tablename => columnname) */
 		// tablename should not have prefix 'vtiger_'
 		'servicejob_no'=> Array('servicejob' => 'servicejob_no'),
-		'service_procedure'=> Array('servicejob' => 'service_procedure'),
+		'servicejob_productname'=> Array('servicejob' => 'servicejob_productname'),
 		'Assigned To' => Array('crmentity' => 'smownerid'),
 		'execution_date' => Array('servicejob' => 'execution_date'),
 		'related_asset_id' => Array('servicejob' => 'related_asset_id')
@@ -56,7 +56,7 @@ class ServiceJob extends CRMEntity {
 	var $list_fields_name = Array(
 		/* Format: Field Label => fieldname */
 		'servicejob_no'=> 'servicejob_no',
-		'service_procedure'=> 'service_procedure',
+		'servicejob_productname'=> 'servicejob_productname',
 		'Assigned To' => 'assigned_user_id',
 		'execution_date' => 'execution_date',
 		'related_asset_id' => 'related_asset_id'
