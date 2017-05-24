@@ -13,6 +13,7 @@ function closeServiceJob($id, $values, $user) {
 		require_once('Smarty_setup.php');
 
 		list($sj_wsid, $sj_id) = explode('x', $id);
+		/* ==== Save the ServiceJob ==== */
 		$sj = new ServiceJob();
 		$sj->retrieve_entity_info($sj_id, 'ServiceJob');
 		$sj->id = $sj_id;
@@ -25,6 +26,10 @@ function closeServiceJob($id, $values, $user) {
 		} else if ($values['goed_afkeur'] == 'afkeur') {
 			$sj->column_fields['servicejob_status'] = 'Disapproved';
 		}
+		// Handle the case when a new serial no. was entered
+		if (array_key_exists('new_serial', $values)) {
+			$sj->column_fields['servicejob_for_serial'] = $values['new_serial'];
+		}
 		$sj->column_fields['mechanic_remarks'] = $values['mechanic_remarks'];
 		$sj->column_fields['assigned_user_id'] = $user->id;
 		$sj->column_fields['execution_date'] = date_format(new DateTime('now'), 'Y-m-d');
@@ -35,13 +40,17 @@ function closeServiceJob($id, $values, $user) {
 
 		$sj->save('ServiceJob');
 
+		/* ==== Alter the related Asset ==== */
 		if (array_key_exists('new_asset_expirydate', $values)) {
 			$rel_asset_id = $sj->column_fields['related_asset_id'];
 			$ass = new Assets();
 			$ass->retrieve_entity_info($rel_asset_id, 'Assets');
 			$ass->id = $rel_asset_id;
 			$ass->mode = 'edit';
-
+			// Handle the case when a new serial no. was entered
+			if (array_key_exists('new_serial', $values)) {
+				$ass->column_fields['serialnumber'] = $values['new_serial'];
+			}
 			$ass->column_fields['cf_731'] = $values['new_asset_expirydate'];
 			$ass->column_fields['cf_966'] = 'Gekeurd';
 			$handler = vtws_getModuleHandlerFromName('Assets', $user);
@@ -50,7 +59,8 @@ function closeServiceJob($id, $values, $user) {
 
 			$ass->save('Assets');
 		}
-		
+
+		/* ==== Create the report ==== */
 		$report = new ServiceJobReport();
 		$smarty = new vtigerCRM_Smarty();
 
