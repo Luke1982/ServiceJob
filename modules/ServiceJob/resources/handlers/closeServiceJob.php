@@ -48,7 +48,7 @@ function closeServiceJob($id, $values, $user) {
 			$ass->id = $rel_asset_id;
 			$ass->mode = 'edit';
 			// Handle the case when a new serial no. was entered
-			if (array_key_exists('new_serial', $values)) {
+			if (array_key_exists('new_serial', $values) && $values['new_serial'] != '') {
 				$ass->column_fields['serialnumber'] = $values['new_serial'];
 			}
 			$ass->column_fields['cf_731'] = $values['new_asset_expirydate'];
