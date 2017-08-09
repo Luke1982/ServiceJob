@@ -100,6 +100,19 @@ function closeServiceJob($id, $values, $user) {
 
 		$sj->save('ServiceJob');
 
+		// Set the asset cf_966 to 'Gekeurd' when a servicejob is cancelled
+		$rel_asset_id = $sj->column_fields['related_asset_id'];
+		$ass = new Assets();
+		$ass->retrieve_entity_info($rel_asset_id, 'Assets');
+		$ass->id = $rel_asset_id;
+		$ass->mode = 'edit';
+		$ass->column_fields['cf_966'] = 'Gekeurd';
+		$handler = vtws_getModuleHandlerFromName('Assets', $user);
+		$meta = $handler->getMeta();
+		$ass->column_fields = DataTransform::sanitizeRetrieveEntityInfo($ass->column_fields, $meta);
+
+		$ass->save('Assets');
+
 	}
 
 	return true;
