@@ -29,8 +29,7 @@ function createPDF() {
 		r.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var response = JSON.parse(r.response);
-				var downloadFrame = document.getElementById("download_pdf");
-				downloadFrame.src = response.download_loc;
+				presentFile(response.download_loc);
 				setTimeout(function(){
 					deleteFile(response.delete_loc);
 				},2000);				
@@ -52,4 +51,13 @@ function deleteFile(file) {
 	}
 	r.open("GET", "index.php?module=ServiceJob&action=ServiceJobAjax&file=getReportPDF&pdfaction=delete&filetodelete=" + file, true);
 	r.send();	
+}
+
+function presentFile(url) {
+	var a = document.createElement("a");
+	a.href = url;
+	a.download = url.substr(url.lastIndexOf('/') + 1);
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
 }
