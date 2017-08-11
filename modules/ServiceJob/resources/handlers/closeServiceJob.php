@@ -27,7 +27,7 @@ function closeServiceJob($id, $values, $user) {
 			$sj->column_fields['servicejob_status'] = 'Disapproved';
 		}
 		// Handle the case when a new serial no. was entered
-		if (array_key_exists('new_serial', $values)) {
+		if (array_key_exists('new_serial', $values) && $values['new_serial'] != '') {
 			$sj->column_fields['servicejob_for_serial'] = $values['new_serial'];
 		}
 		$sj->column_fields['mechanic_remarks'] = $values['mechanic_remarks'];
