@@ -50,6 +50,35 @@ Class SoSaveHandler extends VTEventHandler {
 				}
 			}
 
+			// Handle the situation when a salesorder is saved with previously saved assets
+			switch ($soData['sostatus']) {
+				case 'Niet geleverd':
+					$new_asset_status = 'Gekeurd';
+					break;
+				case 'Ingepland':
+					$new_asset_status = 'Keuring ingepland';
+					break;
+				default:
+					$new_asset_status = 'Gekeurd';
+					break;
+			}
+			if ($soData['sostatus'] == 'Niet geleverd' || $soData['sostatus'] == 'Ingepland') {
+				$r = $adb->pquery("SELECT * FROM vtiger_crmentityrel WHERE crmid = ? AND relmodule = ?", array($soId, 'Assets'));
+				if ($adb->num_rows($r) > 0) {
+					while ($row = $adb->fetch_array($r)) {
+				 		// Update the asset "keurstatus"
+						$ass = new Assets();
+						$ass->retrieve_entity_info($row['relcrmid'], 'Assets');
+						$ass->id = $row['relcrmid'];
+						$ass->mode = 'edit';
+						$ass->column_fields['cf_966'] = $new_asset_status; // Adjust custom field ID
+						$handler = vtws_getModuleHandlerFromName('Assets', $current_user);
+						$meta = $handler->getMeta();
+						$ass->column_fields = DataTransform::sanitizeRetrieveEntityInfo($ass->column_fields, $meta);
+						$ass->save('Assets');
+					}
+				}
+			}
 		}
 	}
 }
