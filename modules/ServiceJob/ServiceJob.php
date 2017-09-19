@@ -51,7 +51,7 @@ class ServiceJob extends CRMEntity {
 		'servicejob_productname'=> Array('servicejob' => 'servicejob_productname'),
 		'servicejob_for_serial'=> Array('servicejob' => 'servicejob_for_serial'),
 		'Assigned To' => Array('crmentity' => 'smownerid'),
-		'execution_date' => Array('servicejob' => 'execution_date'),
+		'execution_date' => Array('servicejob' => 'servicejob_status'),
 		'related_asset_id' => Array('servicejob' => 'related_asset_id')
 	);
 	var $list_fields_name = Array(
@@ -60,7 +60,7 @@ class ServiceJob extends CRMEntity {
 		'servicejob_productname'=> 'servicejob_productname',
 		'servicejob_for_serial'=> 'servicejob_for_serial',
 		'Assigned To' => 'assigned_user_id',
-		'execution_date' => 'execution_date',
+		'servicejob_status' => 'servicejob_status',
 		'related_asset_id' => 'related_asset_id'
 	);
 
