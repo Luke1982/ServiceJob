@@ -74,6 +74,7 @@ Class SoSaveHandler extends VTEventHandler {
 						$ass->column_fields['cf_966'] = $new_asset_status; // Adjust custom field ID
 						$handler = vtws_getModuleHandlerFromName('Assets', $current_user);
 						$meta = $handler->getMeta();
+						unset($_REQUEST['ajxaction']);
 						$ass->column_fields = DataTransform::sanitizeRetrieveEntityInfo($ass->column_fields, $meta);
 						$ass->save('Assets');
 					}
