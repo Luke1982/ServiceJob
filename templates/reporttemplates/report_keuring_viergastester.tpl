@@ -159,21 +159,21 @@
 			<td colspan="3" style="background-color:rgb(204, 204, 204); text-align:center; width:40%">PEF WAARDE, LOW FLOW TEST EN RESPONSIETEST</td>
 		</tr>
 		<tr>
-			<td colspan="2" style="width:20%">Samenstelling referentiegas (laag)</td>
-			<td style="width:20%">Berekende fout</td>
-			<td style="width:20%">Gemeten waarde</td>
-			<td style="width:12%">P.E.F. waarde</td>
-			<td style="width:12%">Is de Low-Flow test OK?</td>
-			<td style="width:16%">Is de responsietest OK voor alle gassen?</td>
+			<td colspan="2" style="width:20%; font-size: 7pt;">Samenstelling referentiegas (laag)</td>
+			<td style="width:20%; font-size: 7pt;">Berekende fout</td>
+			<td style="width:20%; font-size: 7pt;">Gemeten waarde</td>
+			<td style="width:12%; font-size: 7pt;">P.E.F. waarde</td>
+			<td style="width:12%; font-size: 7pt;">Is de Low-Flow test OK?</td>
+			<td style="width:16%; font-size: 7pt;">Is de responsietest OK voor alle gassen?</td>
 		</tr>
 		<tr>
 			<td style="background-color:rgb(153, 153, 153); width:7%">CO</td>
 			<td style="text-align:right; width:13%"><strong>{$reportvalues.laag_ref_CO} % vol</strong></td>
 			<td style="width:20%">{$reportvalues.laag_verschil_CO}</td>
 			<td style="text-align:center; width:20%"><strong>{$reportvalues.laag_gemeten_CO} % vol</strong></td>
-			<td colspan="1" rowspan="8" style="text-align:center; width:12%"><strong>{$reportvalues.pef}</strong></td>
-			<td colspan="1" rowspan="8" style="text-align:center; width:12%">
-			<table border="0" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">
+			<td colspan="1" rowspan="12" style="text-align:center; width:12%"><strong>{$reportvalues.pef}</strong></td>
+			<td colspan="1" rowspan="12" style="text-align:center; width:12%">
+			<table border="0" cellpadding="8" cellspacing="0" style="border-collapse:collapse;font-size: 7pt;">
 				<tbody>
 					<tr>
 						<td><strong>{if $reportvalues.lowflow_controle == 'ja'}X{/if}</strong></td>
@@ -186,8 +186,8 @@
 				</tbody>
 			</table>
 			</td>
-			<td colspan="1" rowspan="8" style="text-align:center; width:16%">
-			<table border="0" cellpadding="3" cellspacing="0">
+			<td colspan="1" rowspan="12" style="text-align:center; width:16%">
+			<table border="0" cellpadding="3" cellspacing="0" style="font-size: 7pt;">
 				<tbody>
 					<tr>
 						<td><strong>{if $reportvalues.responsietest_controle == 'ja'}X{/if}</strong></td>
@@ -202,42 +202,64 @@
 			</td>
 		</tr>
 		<tr>
-			<td style="background-color:rgb(153, 153, 153); width:7%">CO2</td>
-			<td style="text-align:right; width:13%"><strong>{$reportvalues.laag_ref_CO2} % vol</strong></td>
-			<td style="width:20%">{$reportvalues.laag_verschil_CO2}</td>
-			<td style="text-align:center; width:20%"><strong>{$reportvalues.laag_gemeten_CO2} % vol</strong></td>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">CO2</td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.laag_ref_CO2} % vol</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.laag_verschil_CO2}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.laag_gemeten_CO2} % vol</strong></td>
 		</tr>
 		<tr>
-			<td style="background-color:rgb(153, 153, 153); width:7%">HC</td>
-			<td style="text-align:right; width:13%"><strong>{$reportvalues.laag_ref_HC} ppm vol<br />({math equation="x * y" x=$reportvalues.laag_ref_HC y=$reportvalues.pef} ppm vol)</strong></td>
-			<td style="width:20%">{$reportvalues.laag_verschil_HC}</td>
-			<td style="text-align:center; width:20%"><strong>{$reportvalues.laag_gemeten_HC} ppm vol</strong></td>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">HC</td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.laag_ref_HC} ppm vol<br />({math equation="x * y" x=$reportvalues.laag_ref_HC y=$reportvalues.pef} ppm vol)</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.laag_verschil_HC}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.laag_gemeten_HC} ppm vol</strong></td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background-color:rgb(204, 204, 204); text-align:center; width:60%;">RESULTAAT CONTROLE MET MIDDEN GAS</td>
+		</tr>
+		<tr>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">CO</td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.mid_ref_CO} % vol</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.mid_verschil_CO}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.mid_gemeten_CO} % vol</strong></td>
+		</tr>
+		<tr>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">CO<sup>2</sup></td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.mid_ref_CO2} % vol</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.mid_verschil_CO2}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.mid_gemeten_CO2} % vol</strong></td>
+		</tr>
+		<tr>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">O<sup>2</sup></td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.mid_ref_O2} % vol</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.mid_verschil_O2}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.mid_gemeten_O2} % vol</strong></td>
+		</tr>
+		<tr>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">HC</td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.mid_ref_HC} ppm vol<br />({math equation="x * y" x=$reportvalues.mid_ref_HC y=$reportvalues.pef} ppm vol)</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.mid_verschil_HC}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.mid_gemeten_HC} ppm vol</strong></td>
 		</tr>
 		<tr>
 			<td colspan="4" style="background-color:rgb(204, 204, 204); text-align:center; width:60%">RESULTAAT CONTROLE MET HOOG GAS</td>
 		</tr>
 		<tr>
-			<td colspan="2" style="width:20%">Samenstelling referentiegas (hoog)</td>
-			<td style="width:20%">Berekende fout</td>
-			<td style="width:20%">Gemeten waarde</td>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">CO</td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.hoog_ref_CO} % vol</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.hoog_verschil_CO}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.hoog_gemeten_CO} % vol</strong></td>
 		</tr>
 		<tr>
-			<td style="background-color:rgb(153, 153, 153); width:7%">CO</td>
-			<td style="text-align:right; width:13%"><strong>{$reportvalues.hoog_ref_CO} % vol</strong></td>
-			<td style="width:20%">{$reportvalues.hoog_verschil_CO}</td>
-			<td style="text-align:center; width:20%"><strong>{$reportvalues.hoog_gemeten_CO} % vol</strong></td>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">CO<sup>2</sup></td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.hoog_ref_CO2} % vol</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.hoog_verschil_CO2}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.hoog_gemeten_CO2} % vol</strong></td>
 		</tr>
 		<tr>
-			<td style="background-color:rgb(153, 153, 153); width:7%">CO<sup>2</sup></td>
-			<td style="text-align:right; width:13%"><strong>{$reportvalues.hoog_ref_CO2} % vol</strong></td>
-			<td style="width:20%">{$reportvalues.hoog_verschil_CO2}</td>
-			<td style="text-align:center; width:20%"><strong>{$reportvalues.hoog_gemeten_CO2} % vol</strong></td>
-		</tr>
-		<tr>
-			<td style="background-color:rgb(153, 153, 153); width:7%">HC</td>
-			<td style="text-align:right; width:13%"><strong>{$reportvalues.hoog_ref_HC} ppm vol<br />({math equation="x * y" x=$reportvalues.hoog_ref_HC y=$reportvalues.pef} ppm vol)</strong></td>
-			<td style="width:20%">{$reportvalues.hoog_verschil_HC}</td>
-			<td style="text-align:center; width:20%"><strong>{$reportvalues.hoog_gemeten_HC} ppm vol</strong></td>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">HC</td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.hoog_ref_HC} ppm vol<br />({math equation="x * y" x=$reportvalues.hoog_ref_HC y=$reportvalues.pef} ppm vol)</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.hoog_verschil_HC}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.hoog_gemeten_HC} ppm vol</strong></td>
 		</tr>
 	</tbody>
 </table>
