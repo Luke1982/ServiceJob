@@ -57,7 +57,7 @@ window.addEventListener("load", function(){
 		row.parentElement.appendChild(newRow);
 
 		newRow.addEventListener("click", function(e){
-			e.srcElement.parentElement.parentElement.removeChild(e.srcElement.parentElement);
+			e.target.parentElement.parentElement.removeChild(e.target.parentElement);
 		});
 
 		document.getElementById("related_asset_input").value = "";
