@@ -62,7 +62,7 @@ Class SoSaveHandler extends VTEventHandler {
 					$new_asset_status = 'Gekeurd';
 					break;
 			}
-			if ($soData['sostatus'] == 'Niet geleverd' || $soData['sostatus'] == 'Ingepland') {
+			if ($soData['sostatus'] == 'Niet geleverd' || $soData['sostatus'] == 'Ingepland' || $soData['sostatus'] == 'Created') {
 				$r = $adb->pquery("SELECT * FROM vtiger_crmentityrel WHERE crmid = ? AND relmodule = ?", array($soId, 'Assets'));
 				if ($adb->num_rows($r) > 0) {
 					while ($row = $adb->fetch_array($r)) {
