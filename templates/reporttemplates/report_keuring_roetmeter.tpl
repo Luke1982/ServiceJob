@@ -134,29 +134,19 @@
 			<td colspan="5" style="background-color:rgb(153, 153, 153); text-align:center"><strong>RESULTAAT STATISCHE EN DYNAMISCHE TEST</strong></td>
 		</tr>
 		<tr>
-			<td colspan="3" style="background-color:rgb(204, 204, 204); text-align:center; width:80%">STATISCHE TEST MET MINIMAAL 2 REFERENTIEFILTERS, (MAXIMALE AFWIJKING 1,5%)</td>
+			<td colspan="3" style="background-color:rgb(204, 204, 204); text-align:center; width:80%">STATISCHE TEST MET REFERENTIEFILTER, (MAXIMALE AFWIJKING 1,5%)</td>
 			<td colspan="2" style="background-color:rgb(204, 204, 204); text-align:center; width:20%">DYNAMISCHE TEST. DEZE TEST MOET EEN RESULTAAT TUSSEN DE 0,18 EN 0,22 SECONDEN GEVEN.</td>
 		</tr>
 		<tr>
 			<td colspan="1" style="width:20%">Filterwaarde</td>
 			<td colspan="1" style="width:20%">Verschil</td>
 			<td colspan="1" style="width:40%">Gemeten waarde</td>
-			<td rowspan="4" style="text-align:center; width:20%"><span style="font-size:16px"><strong>{$reportvalues.dyn_test}<br />sec</strong></span></td>
+			<td rowspan="2" style="text-align:center; width:20%"><span style="font-size:16px"><strong>{$reportvalues.dyn_test}<br />sec</strong></span></td>
 		</tr>
 		<tr>
 			<td colspan="1" style="width:20%">{$reportvalues.ref_filter1}</td>
 			<td colspan="1" style="width:20%">{$reportvalues.diff_filter1}</td>
 			<td colspan="1" style="width:40%">{$reportvalues.meas_filter1}</td>
-		</tr>
-		<tr>
-			<td colspan="1" style="width:20%">{$reportvalues.ref_filter2}</td>
-			<td colspan="1" style="width:20%">{$reportvalues.diff_filter2}</td>
-			<td colspan="1" style="width:40%">{$reportvalues.meas_filter2}</td>
-		</tr>
-		<tr>
-			<td colspan="1" style="width:20%">{$reportvalues.ref_filter3}</td>
-			<td colspan="1" style="width:20%">{$reportvalues.diff_filter3}</td>
-			<td colspan="1" style="width:40%">{$reportvalues.meas_filter3}</td>
 		</tr>
 	</tbody>
 </table>
