@@ -134,7 +134,7 @@
 			<td colspan="5" style="background-color:rgb(153, 153, 153); text-align:center"><strong>RESULTAAT STATISCHE EN DYNAMISCHE TEST</strong></td>
 		</tr>
 		<tr>
-			<td colspan="3" style="background-color:rgb(204, 204, 204); text-align:center; width:80%">STATISCHE TEST MET MINIMAAL 2 REFERENTIEFILTERS, (MAXIMALE AFWIJKING 5%)</td>
+			<td colspan="3" style="background-color:rgb(204, 204, 204); text-align:center; width:80%">STATISCHE TEST MET MINIMAAL 2 REFERENTIEFILTERS, (MAXIMALE AFWIJKING 1,5%)</td>
 			<td colspan="2" style="background-color:rgb(204, 204, 204); text-align:center; width:20%">DYNAMISCHE TEST. DEZE TEST MOET EEN RESULTAAT TUSSEN DE 0,18 EN 0,22 SECONDEN GEVEN.</td>
 		</tr>
 		<tr>
