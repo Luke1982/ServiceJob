@@ -29,6 +29,7 @@ $mod_strings = Array(
 	'servicejob_for_serial' => 'Keuring voor serienummer',
 	'rme_exported' => 'Naar RME batch bestand mee genomen',
 	'rme_firsttime' => 'Opvoeren RME (aan) of herkeuren RME (uit)',
+	'procedureid' => 'Procedure',
 
 
 	// Block labels

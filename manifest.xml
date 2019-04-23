@@ -3,12 +3,25 @@
 <name>ServiceJob</name>
 <label>ServiceJob</label>
 <parent>Tools</parent>
-<version>0.52</version>
+<version>0.62</version>
 <short_description>A module that will keep track of service jobs done in the field</short_description>
 <dependencies>
-<vtiger_version>5.8.0</vtiger_version>
-<vtiger_max_version>5.*</vtiger_max_version>
+	<vtiger_version>5.8.0</vtiger_version>
+	<vtiger_max_version>8.*</vtiger_max_version>
 </dependencies>
+<migrations>
+	<migration version='0.52'>
+		<tables>
+			<table>
+				<name>vtiger_servicejob</name>
+				<sql><![CDATA[
+						ALTER TABLE vtiger_servicejob ADD COLUMN `procedureid` INT(11) NULL
+					]]>
+				</sql>
+			</table>
+		</tables>
+	</migration>
+</migrations>
 <license>
 <inline><![CDATA[
 /*************************************************************************************************
@@ -26,7 +39,7 @@
  * at <http://corebos.org/documentation/doku.php?id=en:devel:vpl11>
  *************************************************************************************************
  *  Module       : coreBOS ServiceJob
- *  Version      : 0.51
+ *  Version      : 0.62
  *************************************************************************************************/
 ]]></inline>
 </license>
@@ -301,6 +314,29 @@
 				<info_type>BAS</info_type>
 				<helpinfo><![CDATA[]]></helpinfo>
 				<masseditable>1</masseditable>
+			</field>
+			<field>
+				<fieldname>procedureid</fieldname>
+				<uitype>10</uitype>
+				<columnname>procedureid</columnname>
+				<tablename>vtiger_servicejob</tablename>
+				<generatedtype>1</generatedtype>
+				<fieldlabel>procedureid</fieldlabel>
+				<readonly>1</readonly>
+				<presence>0</presence>
+				<selected>0</selected>
+				<sequence>12</sequence>
+				<maximumlength>255</maximumlength>
+				<typeofdata>V~O</typeofdata>
+				<quickcreate>0</quickcreate>
+				<quickcreatesequence>0</quickcreatesequence>
+				<displaytype>1</displaytype>
+				<info_type>BAS</info_type>
+				<helpinfo><![CDATA[SJ_HELP_PROCEDUREID]]></helpinfo>
+				<masseditable>0</masseditable>
+				<relatedmodules>
+					<relatedmodule>ServicejobProcedure</relatedmodule>
+				</relatedmodules>
 			</field>
 		</fields>
 	</block>
