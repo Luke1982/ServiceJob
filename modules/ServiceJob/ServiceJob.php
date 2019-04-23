@@ -125,9 +125,18 @@ class ServiceJob extends CRMEntity {
 	}
 
 	function save_module($module) {
+		global $adb;
+
 		if ($this->HasDirectImageField) {
 			$this->insertIntoAttachment($this->id,$module);
 		}
+
+		$sql = "UPDATE vtiger_servicejob SET procedureid=(
+					SELECT sjprocedureid FROM vtiger_products WHERE productid=(
+						SELECT product FROM vtiger_assets WHERE assetsid={$this->column_fields['related_asset_id']} LIMIT 1)
+					LIMIT 1)
+				WHERE servicejobid={$this->id}";
+		$adb->query($sql);
 	}
 
 	/**
