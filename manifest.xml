@@ -3,7 +3,7 @@
 <name>ServiceJob</name>
 <label>ServiceJob</label>
 <parent>Tools</parent>
-<version>0.62</version>
+<version>0.63</version>
 <short_description>A module that will keep track of service jobs done in the field</short_description>
 <dependencies>
 	<vtiger_version>5.8.0</vtiger_version>
@@ -14,10 +14,7 @@
 		<tables>
 			<table>
 				<name>vtiger_servicejob</name>
-				<sql><![CDATA[
-						ALTER TABLE vtiger_servicejob ADD COLUMN `procedureid` INT(11) NULL
-					]]>
-				</sql>
+				<sql><![CDATA[ALTER TABLE vtiger_servicejob ADD COLUMN `procedureid` INT(11) NULL]]></sql>
 			</table>
 		</tables>
 	</migration>
@@ -39,7 +36,7 @@
  * at <http://corebos.org/documentation/doku.php?id=en:devel:vpl11>
  *************************************************************************************************
  *  Module       : coreBOS ServiceJob
- *  Version      : 0.62
+ *  Version      : 0.63
  *************************************************************************************************/
 ]]></inline>
 </license>
