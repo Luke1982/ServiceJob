@@ -10,7 +10,7 @@
 	}
 {/literal}
 </style>
-<div id="report_filename" style="display: none">checklist_bandendemontage_{$reportmeta.accountname}_{$reportmeta.date}</div>
+<div id="report_filename" style="display: none">checklist_balanceermachine_{$reportmeta.accountname}_{$reportmeta.date}</div>
 <table border="0" cellpadding="1" cellspacing="0" width="100%">
 	<tbody>
 		<tr>
