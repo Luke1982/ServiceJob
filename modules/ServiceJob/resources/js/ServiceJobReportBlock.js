@@ -23,7 +23,7 @@ function createPDF() {
 
 	pdfButton.addEventListener("click", function(e){
 		e.preventDefault();
-		var filename  = document.getElementById("report_filename").innerHTML;		
+		var filename  = document.getElementById("report_filename").innerHTML.replace(/[\/\* ]/gi, "_");
 
 		var r = new XMLHttpRequest();
 		r.onreadystatechange = function() {
