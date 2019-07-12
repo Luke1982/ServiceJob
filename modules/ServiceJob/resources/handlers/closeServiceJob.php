@@ -31,6 +31,7 @@ function closeServiceJob($id, $values, $user) {
 			$sj->column_fields['servicejob_for_serial'] = $values['new_serial'];
 		}
 		$sj->column_fields['mechanic_remarks'] = $values['mechanic_remarks'];
+		$sj->column_fields['rme_firsttime'] = $values['rme_firsttime'];
 		$sj->column_fields['assigned_user_id'] = $user->id;
 		$sj->column_fields['execution_date'] = date_format(new DateTime('now'), 'Y-m-d');
 
