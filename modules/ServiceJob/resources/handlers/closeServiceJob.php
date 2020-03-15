@@ -85,6 +85,7 @@ function closeServiceJob($id, $values, $user) {
 
 		// If a servicejob is cancelled from the portal
 		require_once('modules/ServiceJob/ServiceJob.php');
+		require_once 'modules/Assets/Assets.php';
 
 		list($sj_wsid, $sj_id) = explode('x', $id);
 		$sj = new ServiceJob();
