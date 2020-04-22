@@ -1,12 +1,11 @@
 <?php
 
 class SoSaveHandler extends VTEventHandler {
-	public function handleEvent($eventName, $entityData){
+	public function handleEvent($eventName, $entityData) {
 		global $current_user, $adb;
 
 		$moduleName = $entityData->getModuleName();
 		if ($moduleName == 'SalesOrder') {
-
 			$soId = $entityData->getId();
 			$soData = $entityData->getData();
 
@@ -15,7 +14,6 @@ class SoSaveHandler extends VTEventHandler {
 
 			foreach ($_REQUEST['hdn_asset'] as $k => $v) {
 				if ($k != '') {
-
 					// Update the asset "keurstatus"
 					$ass = new Assets();
 					$ass->retrieve_entity_info($k, 'Assets');
