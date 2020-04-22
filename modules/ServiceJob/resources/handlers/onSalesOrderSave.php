@@ -1,6 +1,6 @@
 <?php
 
-Class SoSaveHandler extends VTEventHandler {
+class SoSaveHandler extends VTEventHandler {
 	public function handleEvent($eventName, $entityData){
 		global $current_user, $adb;
 
@@ -10,13 +10,13 @@ Class SoSaveHandler extends VTEventHandler {
 			$soId = $entityData->getId();
 			$soData = $entityData->getData();
 
-			require_once('modules/ServiceJob/ServiceJob.php');
-			require_once('modules/Assets/Assets.php');
-			
+			require_once 'modules/ServiceJob/ServiceJob.php';
+			require_once 'modules/Assets/Assets.php';
+
 			foreach ($_REQUEST['hdn_asset'] as $k => $v) {
 				if ($k != '') {
 
-			 		// Update the asset "keurstatus"
+					// Update the asset "keurstatus"
 					$ass = new Assets();
 					$ass->retrieve_entity_info($k, 'Assets');
 					$ass->id = $k;
@@ -38,15 +38,14 @@ Class SoSaveHandler extends VTEventHandler {
 					$sj_focus->column_fields['servicejob_for_serial'] = $ass_serial;
 					$sj_focus->column_fields['servicejob_productname'] = trim($v);
 
-			 		$handler = vtws_getModuleHandlerFromName('ServiceJob', $current_user); 
-			 		$meta = $handler->getMeta();
-			 		$sj_focus->column_fields = DataTransform::sanitizeRetrieveEntityInfo($sj_focus->column_fields, $meta);
+					$handler = vtws_getModuleHandlerFromName('ServiceJob', $current_user);
+					$meta = $handler->getMeta();
+					$sj_focus->column_fields = DataTransform::sanitizeRetrieveEntityInfo($sj_focus->column_fields, $meta);
 
-			 		$sj_focus->save('ServiceJob');
+					$sj_focus->save('ServiceJob');
 
-			 		$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $sj_focus->id, 'ServiceJob'));
-			 		$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $k, 'Assets'));
-
+					$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $sj_focus->id, 'ServiceJob'));
+					$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $k, 'Assets'));
 				}
 			}
 
@@ -66,7 +65,7 @@ Class SoSaveHandler extends VTEventHandler {
 				$r = $adb->pquery("SELECT * FROM vtiger_crmentityrel WHERE crmid = ? AND relmodule = ?", array($soId, 'Assets'));
 				if ($adb->num_rows($r) > 0) {
 					while ($row = $adb->fetch_array($r)) {
-				 		// Update the asset "keurstatus"
+						// Update the asset "keurstatus"
 						$ass = new Assets();
 						$ass->retrieve_entity_info($row['relcrmid'], 'Assets');
 						$ass->id = $row['relcrmid'];
