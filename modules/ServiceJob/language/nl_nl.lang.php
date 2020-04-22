@@ -28,7 +28,7 @@ $mod_strings = Array(
 	'mechanic_remarks' => 'Opmerkingen monteur',
 	'servicejob_for_serial' => 'Keuring voor serienummer',
 	'rme_exported' => 'Naar RME batch bestand mee genomen',
-	'rme_firsttime' => 'Opvoeren RME (aan) of herkeuren RME (uit)',
+	'rme_firsttime' => 'Nieuw meetmiddel registreren?',
 	'procedureid' => 'Procedure',
 
 
