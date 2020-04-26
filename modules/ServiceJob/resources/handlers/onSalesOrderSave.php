@@ -17,15 +17,7 @@ class SoSaveHandler extends VTEventHandler {
 					// Update the asset "keurstatus"
 					$ass = new Assets();
 					$ass->retrieve_entity_info($k, 'Assets');
-					$ass->id = $k;
-					$ass->mode = 'edit';
-					$ass->column_fields['cf_966'] = 'Keuring ingepland'; // Adjust custom field ID
 					$ass_serial = $ass->column_fields['serialnumber']; // Get serial no to add to SJ later
-
-					$handler = vtws_getModuleHandlerFromName('Assets', $current_user);
-					$meta = $handler->getMeta();
-					$ass->column_fields = DataTransform::sanitizeRetrieveEntityInfo($ass->column_fields, $meta);
-					$ass->save('Assets');
 
 					$sj_focus = new ServiceJob();
 					$sj_focus->column_fields['assigned_user_id'] = $soData['reports_to_id'];
@@ -44,37 +36,6 @@ class SoSaveHandler extends VTEventHandler {
 
 					$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $sj_focus->id, 'ServiceJob'));
 					$adb->pquery("INSERT INTO vtiger_crmentityrel (crmid, module, relcrmid, relmodule) VALUES (?,?,?,?)", array($soId, 'SalesOrder', $k, 'Assets'));
-				}
-			}
-
-			// Handle the situation when a salesorder is saved with previously saved assets
-			switch ($soData['sostatus']) {
-				case 'Niet geleverd':
-					$new_asset_status = 'Gekeurd';
-					break;
-				case 'Ingepland':
-					$new_asset_status = 'Keuring ingepland';
-					break;
-				default:
-					$new_asset_status = 'Gekeurd';
-					break;
-			}
-			if ($soData['sostatus'] == 'Niet geleverd' || $soData['sostatus'] == 'Ingepland' || $soData['sostatus'] == 'Created') {
-				$r = $adb->pquery("SELECT * FROM vtiger_crmentityrel WHERE crmid = ? AND relmodule = ?", array($soId, 'Assets'));
-				if ($adb->num_rows($r) > 0) {
-					while ($row = $adb->fetch_array($r)) {
-						// Update the asset "keurstatus"
-						$ass = new Assets();
-						$ass->retrieve_entity_info($row['relcrmid'], 'Assets');
-						$ass->id = $row['relcrmid'];
-						$ass->mode = 'edit';
-						$ass->column_fields['cf_966'] = $new_asset_status; // Adjust custom field ID
-						$handler = vtws_getModuleHandlerFromName('Assets', $current_user);
-						$meta = $handler->getMeta();
-						unset($_REQUEST['ajxaction']);
-						$ass->column_fields = DataTransform::sanitizeRetrieveEntityInfo($ass->column_fields, $meta);
-						$ass->save('Assets');
-					}
 				}
 			}
 		}
