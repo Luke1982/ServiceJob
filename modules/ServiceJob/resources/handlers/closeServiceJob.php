@@ -55,7 +55,6 @@ function closeServiceJob($id, $values, $user) {
 				$ass->column_fields['serialnumber'] = $values['new_serial'];
 			}
 			$ass->column_fields['cf_731'] = $values['new_asset_expirydate'];
-			$ass->column_fields['cf_966'] = 'Gekeurd';
 			$ass->column_fields['cf_903'] = isset($values['buildyear']) ? $values['buildyear'] : date('Y');
 			$handler = vtws_getModuleHandlerFromName('Assets', $user);
 			$meta = $handler->getMeta();
@@ -111,7 +110,6 @@ function closeServiceJob($id, $values, $user) {
 		$ass->retrieve_entity_info($rel_asset_id, 'Assets');
 		$ass->id = $rel_asset_id;
 		$ass->mode = 'edit';
-		$ass->column_fields['cf_966'] = 'Gekeurd';
 		$handler = vtws_getModuleHandlerFromName('Assets', $user);
 		$meta = $handler->getMeta();
 		$ass->column_fields = DataTransform::sanitizeRetrieveEntityInfo($ass->column_fields, $meta);
