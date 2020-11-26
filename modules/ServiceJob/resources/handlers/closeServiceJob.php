@@ -25,6 +25,8 @@ function closeServiceJob($id, $values, $user) {
 			$sj->column_fields['servicejob_status'] = 'Approved';
 		} else if ($values['goed_afkeur'] == 'afkeur') {
 			$sj->column_fields['servicejob_status'] = 'Disapproved';
+		} else if ($values['goed_afkeur'] == 'tijdelijk') {
+			$sj->column_fields['servicejob_status'] = 'Tijdelijk goedgekeurd';
 		}
 		// Handle the case when a new serial no. was entered
 		if (array_key_exists('new_serial', $values) && $values['new_serial'] != '') {
