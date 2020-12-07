@@ -58,7 +58,7 @@
 						<td style="background-color:rgb(204, 204, 204); text-align:right; width:20%;"><span class="smalltext">KI Nummer</span></td>
 						<td style="width:30%; text-align:left;"><span>{$reportmeta.cf_548}</span></td>
 						<td style="background-color:rgb(204, 204, 204); text-align:right; width:20%;"><span class="smalltext">Verloopdatum</span></td>
-						<td style="width:30%; text-align:left;"><span>{$reportmeta.cf_731}</span></td>
+						<td style="width:30%; text-align:left;"><span>{$reportmeta.cf_731|date_format:'%d-%m-%Y'}</span></td>
 					</tr>
 				</tbody>
 			</table>
