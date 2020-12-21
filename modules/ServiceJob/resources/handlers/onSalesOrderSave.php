@@ -25,7 +25,7 @@ class SoSaveHandler extends VTEventHandler {
 						$sj_focus->column_fields['execution_date'] = $soData['duedate'];
 						$sj_focus->column_fields['related_asset_id'] = $k;
 						$sj_focus->column_fields['related_so_id'] = $soId;
-						$sj_focus->column_fields['servicejob_status'] = 'Planned';
+						$sj_focus->column_fields['servicejob_status'] = $soData['sostatus'] == 'Ingepland' ? 'Planned' : 'Open';
 						$sj_focus->column_fields['servicejob_for_serial'] = $ass_serial;
 						$sj_focus->column_fields['servicejob_productname'] = trim($v);
 
