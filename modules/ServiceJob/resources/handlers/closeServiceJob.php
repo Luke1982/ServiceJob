@@ -43,8 +43,6 @@ function closeServiceJob($id, $values, $user) {
 		$meta = $handler->getMeta();
 		$sj->column_fields = DataTransform::sanitizeRetrieveEntityInfo($sj->column_fields, $meta);
 
-		$sj->save('ServiceJob');
-
 		/* ==== Alter the related Asset ==== */
 		if (array_key_exists('new_asset_expirydate', $values)) {
 			$rel_asset_id = $sj->column_fields['related_asset_id'];
@@ -83,6 +81,8 @@ function closeServiceJob($id, $values, $user) {
 		$htmlreport = $smarty->fetch($report_path);
 
 		$report->save($htmlreport, $sj_id);
+
+		$sj->save('ServiceJob');
 
 	} else if ($values['action'] == 'cancel') {
 
