@@ -221,17 +221,15 @@
 	</tbody>
 </table>
 
-	{if $reportvalues.mechanic_remarks != ""}
 	<p><span><strong>Verrichte werkzaamheden / opmerkingen:</strong></span></p>
 
 	<table border="0" cellpadding="3" cellspacing="0" width="100%" style="border-collapse:collapse;" class="thinborder">
 		<tbody>
 			<tr>
-				<td>{$reportvalues.mechanic_remarks}</td>
+				<td>{if $reportvalues.mechanic_remarks != ""}{$reportvalues.mechanic_remarks}{else}Geen opmerkingen{/if}</td>
 			</tr>
 		</tbody>
 	</table>
-	{/if}
 
 	<p><span><strong>Gegevens keuringstechnicus en resultaat:</strong></span></p>
 

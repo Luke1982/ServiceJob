@@ -3,7 +3,7 @@
 <name>ServiceJob</name>
 <label>ServiceJob</label>
 <parent>Tools</parent>
-<version>0.77</version>
+<version>0.78</version>
 <short_description>A module that will keep track of service jobs done in the field</short_description>
 <dependencies>
 	<vtiger_version>5.8.0</vtiger_version>
@@ -36,7 +36,7 @@
  * at <http://corebos.org/documentation/doku.php?id=en:devel:vpl11>
  *************************************************************************************************
  *  Module       : coreBOS ServiceJob
- *  Version      : 0.77
+ *  Version      : 0.78
  *************************************************************************************************/
 ]]></inline>
 </license>
