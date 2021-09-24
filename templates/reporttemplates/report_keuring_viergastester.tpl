@@ -277,6 +277,12 @@
 			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.g_gemeten_CO2} % vol</strong></td>
 		</tr>
 		<tr>
+			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">O<sup>2</sup></td>
+			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.g_ref_O2} % vol</strong></td>
+			<td style="width:20%; font-size: 7pt;">{$reportvalues.g_verschil_O2}</td>
+			<td style="text-align:center; width:20%; font-size: 7pt;"><strong>{$reportvalues.g_gemeten_O2} % vol</strong></td>
+		</tr>
+		<tr>
 			<td style="background-color:rgb(153, 153, 153); width:7%; font-size: 7pt;">HC</td>
 			<td style="text-align:right; width:13%; font-size: 7pt;"><strong>{$reportvalues.g_ref_HC} ppm vol<br />({math equation="x * y" x=$reportvalues.g_ref_HC y=$reportvalues.pef} ppm vol)</strong></td>
 			<td style="width:20%; font-size: 7pt;">{$reportvalues.g_verschil_HC}</td>
