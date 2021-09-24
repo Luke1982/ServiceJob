@@ -171,8 +171,8 @@
 			<td style="text-align:right; width:13%"><strong>{$reportvalues.laag_ref_CO} % vol</strong></td>
 			<td style="width:20%">{$reportvalues.laag_verschil_CO}</td>
 			<td style="text-align:center; width:20%"><strong>{$reportvalues.laag_gemeten_CO} % vol</strong></td>
-			<td colspan="1" rowspan="16" style="text-align:center; width:12%"><strong>{$reportvalues.pef}</strong></td>
-			<td colspan="1" rowspan="16" style="text-align:center; width:12%">
+			<td colspan="1" rowspan="17" style="text-align:center; width:12%"><strong>{$reportvalues.pef}</strong></td>
+			<td colspan="1" rowspan="17" style="text-align:center; width:12%">
 			<table border="0" cellpadding="8" cellspacing="0" style="border-collapse:collapse;font-size: 7pt;">
 				<tbody>
 					<tr>
@@ -186,7 +186,7 @@
 				</tbody>
 			</table>
 			</td>
-			<td colspan="1" rowspan="16" style="text-align:center; width:16%">
+			<td colspan="1" rowspan="17" style="text-align:center; width:16%">
 			<table border="0" cellpadding="3" cellspacing="0" style="font-size: 7pt;">
 				<tbody>
 					<tr>
