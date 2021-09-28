@@ -18,7 +18,7 @@ function closeServiceJob($id, $values, $user) {
 
 		$sj->column_fields['servicejob_status'] = 'Completed';
 		// Handle specific cases for approval or disapproval
-		if ($values['goed_afkeur'] == 'goedkeur') {
+		if ($values['goed_afkeur'] == 'goedkeur' || $values['goed_afkeur'] === 'goed_na_rep') {
 			$sj->column_fields['servicejob_status'] = 'Approved';
 		} else if ($values['goed_afkeur'] == 'afkeur') {
 			$sj->column_fields['servicejob_status'] = 'Disapproved';
