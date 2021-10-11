@@ -119,13 +119,6 @@
 			<td style="text-align:center; width:10%"><strong>{if $reportvalues.led_controle == 'nvt'}X{/if}</strong></td>
 		</tr>
 		<tr>
-			<td style=" width:60%">Is de voedingsspanning gecontroleerd?</td>
-			<td style="text-align:center; width:10%"><strong>{if $reportvalues.voeding_controle == 'ja'}X{/if}</strong></td>
-			<td style="text-align:center; width:10%"><strong>{if $reportvalues.voeding_controle == 'na_reparatie'}X{/if}</strong></td>
-			<td style="text-align:center; width:10%"><strong>{if $reportvalues.voeding_controle == 'nee'}X{/if}</strong></td>
-			<td style="text-align:center; width:10%"><strong>{if $reportvalues.voeding_controle == 'nvt'}X{/if}</strong></td>
-		</tr>
-		<tr>
 			<td style=" width:60%">Is de conformiteit van de <strong>vloerdelen</strong> gewaarborgd door een verzegelingssticker? (Indien eerste keuring na 1-1-2012 heeft plaatsgevonden)</td>
 			<td style="text-align:center; width:10%"><strong>{if $reportvalues.vloerdelen_controle == 'ja'}X{/if}</strong></td>
 			<td style="text-align:center; width:10%"><strong>{if $reportvalues.vloerdelen_controle == 'na_reparatie'}X{/if}</strong></td>
