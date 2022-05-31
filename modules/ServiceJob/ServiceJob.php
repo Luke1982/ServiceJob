@@ -122,6 +122,7 @@ class ServiceJob extends CRMEntity {
 		if ($result and $this->db->num_rows($result)==1) {
 			$this->HasDirectImageField = true;
 		}
+		parent::__construct();
 	}
 
 	function save_module($module) {
