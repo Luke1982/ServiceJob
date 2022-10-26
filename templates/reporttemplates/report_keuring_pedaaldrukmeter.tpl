@@ -130,6 +130,14 @@
 			<td style="text-align:center; width:10%"><strong>{if $reportvalues.aflees_controle == 'nee'}X{/if}</strong></td>
 			<td style="text-align:center; width:10%"><strong>{if $reportvalues.aflees_controle == 'nvt'}X{/if}</strong></td>
 		</tr>
+		{if isset($reportvalues.pkh30_checksum)}
+		<tr>
+			<td style=" width:60%">Checksum</td>
+			<td style="text-align:center; width:40%" colspan="4">
+				<strong>{$reportvalues.pkh30_checksum == 'ja'}</strong>
+			</td>
+		</tr>
+		{/if}
 	</tbody>
 </table>
 <p></p>
