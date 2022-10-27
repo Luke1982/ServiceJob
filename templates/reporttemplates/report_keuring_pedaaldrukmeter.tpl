@@ -134,7 +134,7 @@
 		<tr>
 			<td style=" width:60%">Checksum</td>
 			<td style="text-align:center; width:40%" colspan="4">
-				<strong>{$reportvalues.pkh30_checksum == 'ja'}</strong>
+				<strong>{$reportvalues.pkh30_checksum}</strong>
 			</td>
 		</tr>
 		{/if}
